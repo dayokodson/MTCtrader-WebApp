@@ -17,10 +17,10 @@ const Header = () => {
                         </div>
                     </div>
                     <div className="col-auto">
-                        <Link to="/profile" target="_self" className="btn btn-light btn-44">
+                        <a href="/profile"  target="_self" className="btn btn-light btn-44">
                             <i className="bi bi-person-circle"></i>
                             <span className="count-indicator"></span>
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </header>

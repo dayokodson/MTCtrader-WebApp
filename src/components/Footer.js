@@ -8,15 +8,15 @@ const Footer = () => {
             <div className="container">
                 <ul className="nav nav-pills nav-justified">
                     <li className="nav-item">
-                        <Link to="/dashboard" className="nav-link active" href="index.html">
+                        <a href="/dashboard" className="nav-link active">
                             <span>
                                 <i className="nav-icon bi bi-house"></i>
                                 <span className="nav-text">Home</span>
                             </span>
-                        </Link>
+                        </a>
                     </li>
                     <li className="nav-item">
-                        <Link to="/mtcforecast" className="nav-link" href="stats.html">
+                        <Link to="/mtcforecast" className="nav-link" >
                             <span>
                                 <i className="nav-icon bi bi-binoculars"></i>
                                 <span className="nav-text">Forecast</span>
@@ -32,7 +32,7 @@ const Footer = () => {
                         </button>
                     </li>
                     <li className="nav-item">
-                        <Link to="mtcfund" className="nav-link" href="shop.html">
+                        <Link to="mtcfund" className="nav-link" >
                             <span>
                                 <i className="nav-icon bi bi-bag"></i>
                                 <span className="nav-text">MTC AI</span>
@@ -40,7 +40,7 @@ const Footer = () => {
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/setting" className="nav-link" href="wallet.html">
+                        <Link to="/setting" className="nav-link" >
                             <span>
                                 <i className="nav-icon bi bi-wallet2"></i>
                                 <span className="nav-text">Settings</span>

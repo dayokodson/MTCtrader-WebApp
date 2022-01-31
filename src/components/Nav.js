@@ -37,15 +37,15 @@ const Nav = (props) => {
                 <div className="col-12">
                     <ul className="nav nav-pills">
                         <li className="nav-item">
-                            <Link to="/dashboard" className="nav-link active" aria-current="page" href="index.html">
+                            <a href="/dashboard" className="nav-link active" aria-current="page" >
                                 <div className="avatar avatar-40 icon"><i className="bi bi-house-door"></i></div>
                                 <div className="col">Home</div>
                                 <div className="arrow"><i className="bi bi-chevron-right"></i></div>
-                            </Link>
+                            </a>
                         </li>
  
                         <li className="nav-item">
-                            <Link to="/mtcai" className="nav-link" href="chat.html" tabIndex="-1">
+                            <Link to="/mtcai" className="nav-link"  tabIndex="-1">
                                 <div className="avatar avatar-40 icon"><i className="bi bi-chat-text"></i></div>
                                 <div className="col">MTC AI</div>
                                 <div className="arrow"><i className="bi bi-chevron-right"></i></div>
@@ -53,7 +53,7 @@ const Nav = (props) => {
                         </li>
 
                         <li className="nav-item">
-                            <Link to="mtcforecast" className="nav-link" href="notifications.html" tabIndex="-1">
+                            <Link to="mtcforecast" className="nav-link"   tabIndex="-1">
                                 <div className="avatar avatar-40 icon"><i className="bi bi-bell"></i></div>
                                 <div className="col">Market Forecast</div>
                                 <div className="arrow"><i className="bi bi-chevron-right"></i></div>
@@ -61,7 +61,7 @@ const Nav = (props) => {
                         </li>
 
                         <li className="nav-item">
-                            <Link to="mtcreview" className="nav-link" href="blog.html" tabIndex="-1">
+                            <Link to="mtcreview" className="nav-link"  tabIndex="-1">
                                 <div className="avatar avatar-40 icon"><i className="bi bi-newspaper"></i></div>
                                 <div className="col">Market Review</div>
                                 <div className="arrow"><i className="bi bi-chevron-right"></i></div>
@@ -69,22 +69,22 @@ const Nav = (props) => {
                         </li>
 
                         <li className="nav-item">
-                            <a className="nav-link" href="style.html" tabIndex="-1">
+                            <Link to="/deposit" className="nav-link"   tabIndex="-1">
                                 <div className="avatar avatar-40 icon"><i className="bi bi-palette"></i></div>
                                 <div className="col">Deposit </div>
                                 <div className="arrow"><i className="bi bi-chevron-right"></i></div>
-                            </a>
+                            </Link>
                         </li>
 
                         <li className="nav-item">
-                            <Link to="/withdraw" className="nav-link" href="pages.html" tabIndex="-1">
+                            <Link to="/withdraw" className="nav-link" tabIndex="-1">
                                 <div className="avatar avatar-40 icon"><i className="bi bi-file-earmark-text"></i></div>
                                 <div className="col">Withdraw  </div>
                                 <div className="arrow"><i className="bi bi-chevron-right"></i></div>
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/logout" className="nav-link" href="signin.html" tabIndex="-1">
+                            <Link to="/logout" className="nav-link"  tabIndex="-1">
                                 <div className="avatar avatar-40 icon"><i className="bi bi-box-arrow-right"></i></div>
                                 <div className="col">Logout</div>
                                 <div className="arrow"><i className="bi bi-chevron-right"></i></div>

@@ -23,6 +23,9 @@ const Dashboard = () => {
   const [gas, setGas] = useState(40);
   const [totalBalance, setTotalBalance] = useState(gas + wallet);
   const [phone, setPhone] = useState("+2347039416382");
+  const [cryptoList, setCryptoList] = useState([]);
+  const [transList, setTransList] = useState([]);
+  const [reviewList, setReviewList] = useState([]);
 
 
  useEffect(() => {
@@ -34,6 +37,7 @@ const Dashboard = () => {
         }
 
         if(fullname == ""){
+             
             setFullname(window.localStorage.getItem("@name"));
             setPhone(window.localStorage.getItem("@phone"));
         }
@@ -48,9 +52,26 @@ const Dashboard = () => {
 
             let gas = window.localStorage.getItem("@gas") * 1;
             setWallet(gas);
-
-
         }
+        if(window.localStorage.getItem("@cryptoList")){
+
+            let list = JSON.parse(window.localStorage.getItem("@cryptoList"));
+            setCryptoList(list);
+        }
+
+        if(window.localStorage.getItem("@transList")){
+
+            let list = JSON.parse(window.localStorage.getItem("@transList"));
+            setTransList(list);
+        }
+
+        if(window.localStorage.getItem("@reviewsList")){
+
+            let list = JSON.parse(window.localStorage.getItem("@reviewsList"));
+            setReviewList(list);
+        }
+
+
 
         
 	  
@@ -69,7 +90,7 @@ const Dashboard = () => {
                     <div className="body-scroll" >
                         <Nav fullname={fullname} phone={phone}/>
                         <main className="h-100">
-                                <Header />
+                                <Header fullname={fullname} phone={phone}/>
                                 <div className="main-container container">
                                 
                                     <div className="row my-4 text-center">
@@ -135,7 +156,7 @@ const Dashboard = () => {
                                     </div>
 
                                    
-                                   <CryptoList />
+                                   <CryptoList cryptos={cryptoList}/>
                                 
                                     
                                     
@@ -155,19 +176,11 @@ const Dashboard = () => {
                                     
                                   <Banner />
                                 
-                                    <div className="row mb-3">
-                                        <div className="col">
-                                            <h6 className="title">Transactions<br /><small className="fw-normal text-muted">Today, 24 Aug 2021</small>
-                                            </h6>
-                                        </div>
-                                        <div className="col-auto align-self-center">
-                                            <Link to="/transaction" className="small">View all</Link>
-                                        </div>
-                                    </div>
+                                   
                                   
-                                    <TransactionList />
+                                    <TransactionList trans={transList} />
                                   
-                                    <MarketReviewList />
+                                    <MarketReviewList reviews={reviewList}/>
                                 
                                    
 

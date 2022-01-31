@@ -3,7 +3,7 @@ import  { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer"; 
 import Header from "../components/Header";
- 
+import QuickLinkModal from "../components/QuickLinkModal";
 import {ReactComponent as Svg2} from "../constant/logo2.svg";
 
 
@@ -63,7 +63,7 @@ const Profile = () => {
 
         </main>
         <Footer />
-        
+        <QuickLinkModal />
     </div>
     </>
  );

@@ -37,6 +37,8 @@ const saveLoginDetails = (data) => {
             let wallet = JSON.stringify(data.wallet_balance);
             let gas = JSON.stringify(data.gas_balance);
             let transactions = JSON.stringify(data.trans);
+            let reviewsList = JSON.stringify(data.reviews_list);
+            let trendingCrypto = JSON.stringify(data.trending_crypto);
             
             
              
@@ -49,6 +51,10 @@ const saveLoginDetails = (data) => {
             window.localStorage.setItem('@name', fullname);
             window.localStorage.setItem('@puk', puk); 
             window.localStorage.setItem('@isLogin', 'true');
+            window.localStorage.setItem('@transList', transactions);
+            window.localStorage.setItem('@reviewsList', reviewsList);
+            window.localStorage.setItem('@cryptolist', trendingCrypto);
+
             
            
 
