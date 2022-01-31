@@ -47,6 +47,8 @@ const Login = () => {
           setAlertMessage( res.msg);
           setToggleAlert(true);
           setShowProcess(false);
+          navigate('/dashboard');
+          window.location.reload(true);
           return false;
 
         }else{
@@ -123,9 +125,9 @@ const Login = () => {
                                     </button>
                                 </div>
                                 <p className="mb-3 text-end">
-                                    <a href="forgot-password.html" className="">
+                                    <Link to="recover" className="">
                                         Forgot your password?
-                                    </a>
+                                    </Link>
                                 </p>
 
                             { Myalert(alertMessage, toggleAlert)  }  

@@ -3,7 +3,7 @@ import {ReactComponent as NavSvg} from "../constant/navsvg.svg";
 import  { Link } from "react-router-dom";
 
 
-const Nav = () => {
+const Nav = (props) => {
  return (
     <>
         <div className="sidebar-wrap  sidebar-overlay">
@@ -25,8 +25,8 @@ const Nav = () => {
                             </figure>
                         </div>
                         <div className="col px-0 align-self-center">
-                            <h5 className="mb-2">John Winsels</h5>
-                            <p className="text-muted size-12">2347039416382 </p>
+                            <h5 className="mb-2">{props.fullname}</h5>
+                            <p className="text-muted size-12">{props.phone} </p>
                         </div>
                     </div>
                 </div>

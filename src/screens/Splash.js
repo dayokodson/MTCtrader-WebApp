@@ -9,11 +9,11 @@ const Splash = () => {
            <section data-page="splash">
            <main class="container-fluid h-100 bg-1">
             <SplashSvg />
-                <img src="assets/img/splash2.png" alt="" class="bg-2-splash" />
+                <img src="assets/img/logo.png" alt="" class="bg-2-splash" />
 
                 <div class="row h-100">
                     <div class="col-10 col-md-6 col-lg-4 text-left align-self-center mx-auto">
-                        <a href="landing.html" class="logo-splash">
+                        <Link to="/start" class="logo-splash">
                             <div class="logo-wallet">
                                 <div class="wallet-bottom">
                                 </div>
@@ -22,11 +22,11 @@ const Splash = () => {
                                 </div>
                             </div>
                             <h1 class="mt-4 mb-2">
-                                <span class="text-secondary fw-light">Finance</span><br/>
-                                Wallet
+                                <span class="text-secondary fw-light">Millennial</span><br/>
+                                Traders Circle
                             </h1>
-                            <p class="text-secondary">Mobile HTML template</p>
-                        </a>
+                            <p class="text-secondary">Trade, Invest, Learn</p>
+                        </Link>
                     </div>
                 </div>
             </main>
