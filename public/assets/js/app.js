@@ -10,7 +10,7 @@ $(window).on('load', function () {
         
         case "splash":
             setTimeout(function () {
-                window.location.replace("landing.html");
+                window.location.replace("start");
             }, 4000)
             break;
 

@@ -6,7 +6,7 @@ const Splash = () => {
  return (
     <>
            
-           
+           <section data-page="splash">
            <main class="container-fluid h-100 bg-1">
             <SplashSvg />
                 <img src="assets/img/splash2.png" alt="" class="bg-2-splash" />
@@ -30,7 +30,11 @@ const Splash = () => {
                     </div>
                 </div>
             </main>
+
+         </section >   
      
+    
+    
     
     </>
  );

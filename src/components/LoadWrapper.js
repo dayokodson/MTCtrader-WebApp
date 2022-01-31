@@ -1,5 +1,5 @@
 import React from 'react'; 
-const LoadWrapper = () => {
+const LoadWrapper = (props) => {
  return (
     <>
         <div className="container-fluid loader-wrap">
@@ -13,8 +13,8 @@ const LoadWrapper = () => {
                                     </div>
                                 </div>
                                 <p className="mt-4">
-                                    <span className="text-secondary">Track finance with Wallet app</span>
-                                    <br /><strong>Please  wait...</strong>
+                                    <span className="text-secondary">MTCtrader</span>
+                                    <br /><strong>{props.msg}</strong>
                                 </p>
                             </div>
                         </div>

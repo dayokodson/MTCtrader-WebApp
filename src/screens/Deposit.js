@@ -2,18 +2,18 @@ import React from "react";
 import  { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-import QuickLinkModal from "../components/QuickLinkModal";
+ 
 import Header from "../components/Header";
 import LoadWrapper from "../components/LoadWrapper"; 
 
 
-const Dashboard = () => {
+const Deposit = () => {
  return (
     <>
         <section data-page="dashboard">
 
 
-                    <LoadWrapper  msg="Preparing your wallet..."/>
+                    <LoadWrapper />
                     <div className="body-scroll" >
                         <Nav />
                         <main className="h-100">
@@ -425,7 +425,7 @@ const Dashboard = () => {
 
                         </main>
                         <Footer />
-                        <QuickLinkModal />
+                        
                     </div>
 
         </section>
@@ -434,4 +434,4 @@ const Dashboard = () => {
  );
 }
 
-export default Dashboard;
+export default Deposit;
