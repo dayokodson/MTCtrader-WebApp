@@ -8,7 +8,7 @@ const Terms = () => {
     <>
         <main className="h-100">
             <Header title="Terms"/>
-            <div className="main-container container">
+            <div className="main-container container" style={{ marginTop: "80px" }}>
                 
                 <h5>Who we are</h5>
                 <p>Our website address is: https://www.maxartkiller.com.</p>
