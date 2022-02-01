@@ -25,12 +25,12 @@ const Profile = () => {
                         <p className="text-secondary mb-4">Profile information!</p>
 
                         <div className="form-floating mb-3 is-valid">
-                            <input type="text" className="form-control" id="emailaddress" placeholder="name@example.com" value={window.localStorage.getItem("@name")} />
+                            <input type="text" className="form-control" id="emailaddress"  value={window.localStorage.getItem("@name")} />
                             <label for="emailaddress">Display Name</label>
                              
                         </div>
                         <div className="form-floating mb-3 is-valid">
-                            <input type="email" className="form-control" id="emailaddress" placeholder="name@example.com" value={JSON.parse(window.localStorage.getItem("@email"))} />
+                            <input type="email" className="form-control" id="emailaddress"  value={window.localStorage.getItem("@email")} />
                             <label for="emailaddress">Email</label>
                             <button type="button" className="btn btn-link text-success tooltip-btn valid-tooltip"
                                 data-bs-toggle="tooltip" data-bs-placement="left" title="Email is valid">
