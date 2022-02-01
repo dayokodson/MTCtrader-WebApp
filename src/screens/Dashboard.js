@@ -67,7 +67,7 @@ const Dashboard = () => {
     <>
         <section data-page="dashboard">
 
-                    {console.log(window.localStorage)}
+                     
                     <LoadWrapper  msg="Preparing your wallet..."/>
                     <div className="body-scroll" >
                         <Nav fullname={fullname} phone={phone}/>
