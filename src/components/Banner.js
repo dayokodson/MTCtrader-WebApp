@@ -14,7 +14,7 @@ const Banner = () => {
                             <div className="row">
                                 <div className="col-9 align-self-center">
                                     <h1 className="mb-3"><span className="fw-light">Trade crypto </span><br />like pro</h1>
-                                    <p>Fund Gas and start getting Market Forecase alert right in your imbox. Happy trading</p>
+                                    <p>Fund Gas and start getting Market Forecase alert right in your inbox. Happy trading</p>
                                 </div>
                             </div>
                         </div>
