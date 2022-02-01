@@ -6,37 +6,28 @@ const CryptoPayment = () => {
     
  return (
     <>
-        <div class="card mb-4">
-                <div class="card-body">
-                    <div class="row mb-3">
-                        <div class="col">
-                            <p>Transfer Amount</p>
-                        </div>
-                        <div class="col-auto text-end">
-                            <p class="text-muted">110.00</p>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <p>Transaction Charge</p>
-                        </div>
-                        <div class="col-auto text-end">
-                            <p class="text-muted">8.00</p>
-                        </div>
-                    </div>
-                    <div class="row fw-medium">
-                        <div class="col-12">
-                            <div class="dashed-line mb-3"></div>
-                        </div>
-                        <div class="col">
-                            <p>Total Deduction</p>
-                        </div>
-                        <div class="col-auto text-end">
-                            <p class="text-muted">118.00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div style={{ textAlign: "center" }}>
+            <h3><b>USDT (TETHER) </b></h3>
+            <h5>
+                 
+                Deposit to the USDT wallet bellow and click get support now 
+                 
+            </h5>
+            <br/>
+            <p className='form-control'>
+                0xd0112187f079cf831a13d865d10cd164a86c80f4 
+            </p>
+             <p className='form-control' >
+                 Network: Binance Smart Chain (BSC) 
+            </p>
+
+            <p>
+            Make sure you have transfer from your USDT wallet to the USDT wallet above before contacting us. Thank you 
+            </p>
+            
+        </div>
+      <br/>
+      <br/>
     </>
  );
 }

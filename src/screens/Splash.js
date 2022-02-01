@@ -21,8 +21,8 @@ const Splash = () => {
  return (
     <>
            
-           <section data-page="splash">
-           <main class="container-fluid h-100 bg-1">
+        <section data-page="splash">
+            <main class="container-fluid h-100 bg-3">
             <SplashSvg />
                 <img src="assets/img/logo.png" alt="" class="bg-2-splash" />
 

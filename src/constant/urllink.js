@@ -6,10 +6,12 @@ const baseUrl = "https://mtctraders.com/wp-json/mobile/v1";  //"http://localhost
 const puk = window.localStorage.getItem("@puk");
 
 const loginUrl = baseUrl + "/login/"
-const registerUrl = baseUrl + "/signup/";
+const registerUrl = baseUrl + "/signup";
 const depositCrypto = baseUrl + "/deposit";
 const addwallet = baseUrl + "/add_wallet";
- 
+const creditGas = baseUrl + "/creditgas";
+const forecastList = baseUrl + "/forecastlist";
+const marketfundlist = baseUrl + "/marketfundlist";
 
 
  
@@ -20,6 +22,10 @@ export default {
     baseUrl, 
     puk,
     addwallet,
+    creditGas,
+    forecastList,
+    marketfundlist
+
     
     
     

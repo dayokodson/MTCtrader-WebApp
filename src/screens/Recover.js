@@ -49,7 +49,7 @@ const Recover = () => {
                 <div className="col-11 col-sm-11 mt-auto mx-auto py-4">
                     <div className="row ">
                         <div className="col-12 d-grid">
-                            <Link to="/" className="btn btn-default btn-lg shadow-sm">Reset Password</Link>
+                            <button  onClick={() => ""} className="btn btn-default btn-lg shadow-sm">Reset Password</button>
                         </div>
                     </div>
                 </div>

@@ -2,9 +2,9 @@ import React, {useEffect, useState}  from "react";
 import  { Link } from "react-router-dom"; 
 import LoadWrapper from "../components/LoadWrapper"; 
 import BalanceBoard from "../components/BalanceBoard";
-import {Myalert} from "../helpers";
+import {Myalert, Wallet} from "../helpers";
 import Header from "../components/Header";
-
+ 
 const CreditGas = () => {
 
 
@@ -22,7 +22,7 @@ const CreditGas = () => {
     let fundValue = amount * 1;
     
 
-    if(fundValue < 10){
+    if(fundValue < 1){
 
         setAlertMessage("Minimum of $10");
         setToggleAlert(true);
@@ -33,7 +33,7 @@ const CreditGas = () => {
     
     if(fundValue > walletBalance){
 
-        setAlertMessage("Your wallet balance is low");
+        setAlertMessage("Your wallet balance is low ");
         setToggleAlert(true);
         return false;
     }
@@ -41,7 +41,14 @@ const CreditGas = () => {
 
     //now process the funding 
     setIsFunding(true);
-    
+    Wallet.creditGas(fundValue).then(function (res){
+
+        setAlertMessage( res.msg );
+        setToggleAlert(true);
+        setIsFunding(false);
+        return false;
+
+    })
 
 
 

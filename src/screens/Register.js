@@ -13,6 +13,7 @@ const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullname, setFullname] = useState("");
+  const [phone, setPhone] = useState("");
   const [alertMessage, setAlertMessage] = useState("");
   const [toggleAlert, setToggleAlert] = useState(false);
   const [showProcess, setShowProcess] = useState(false);
@@ -43,7 +44,7 @@ const navigate = useNavigate();
     setToggleAlert(false);
     setShowProcess(true);
 
-     Auth.register(email, password).then(function (res){
+     Auth.register(email, password, fullname, phone ).then(function (res){
 
 
       
@@ -53,7 +54,7 @@ const navigate = useNavigate();
           setAlertMessage( res.msg);
           setToggleAlert(true);
           setShowProcess(false);
-          setLoadingMsg("Setting up your account...")
+           console.log(res);
           
           return false;
 
@@ -67,6 +68,7 @@ const navigate = useNavigate();
             setShowProcess(false);
             setLoadingMsg("Setting up your account...")
             navigate('/thankyou');
+            
             
         }
      
@@ -118,7 +120,7 @@ const navigate = useNavigate();
                             <div className="col-11 col-sm-11 col-md-6 col-lg-5 col-xl-3 mx-auto align-self-center py-4">        
                                 <h1 className="mb-4"><span className="text-secondary fw-light">Create</span><br/>new account</h1>            
                                     <div className="form-floating  mb-3">
-                                        <input type="text" className="form-control" onChange={(e) => setEmail(e.target.value)}
+                                        <input type="text" className="form-control" onChange={(e) => setPhone(e.target.value)}
                                             placeholder="+2348123456789"   />
                                         <label>Enter Valid Phone (+234)</label>
                                     </div>
@@ -130,7 +132,7 @@ const navigate = useNavigate();
                                     <div className="form-floating   mb-3">
                                         <input type="text" className="form-control" onChange={(e) => setFullname(e.target.value)} placeholder="Full Name"
                                             />
-                                        <label  >Full Name</label>
+                                        <label>Full Name</label>
                                     </div>
                                     <div className="form-floating  mb-3">
                                         <input type="password" className="form-control" onChange={(e) => setPassword(e.target.value)} placeholder="Password"

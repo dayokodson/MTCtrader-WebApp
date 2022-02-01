@@ -2,6 +2,8 @@
 //import { Alert } from "react-bootstrap";
 
 import {Auth} from "./Auth"; 
+
+import {Wallet} from "./Wallet"; 
  
  
 function Myalert (message, toggle){
@@ -41,7 +43,8 @@ function Myalert (message, toggle){
 export {
      
     Auth,
-    Myalert
+    Myalert,
+    Wallet
     
      
      

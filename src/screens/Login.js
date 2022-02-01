@@ -17,9 +17,12 @@ const Login = () => {
  useEffect(() => {
 		document.title = `MTCtrader - Signin`;  
         let value = window.localStorage.getItem("@isLogin");
+       
         if(value == "true"){
-             navigate("/dashboard");
-             window.location.reload(true);
+
+            //console.log(window.localStorage);
+              navigate("/dashboard");
+              window.location.reload(true);
         }
 	  
 });
@@ -56,8 +59,8 @@ const Login = () => {
             setAlertMessage( res.msg );
             setToggleAlert(true);
             setShowProcess(false);
-            navigate('/dashboard');
-            window.location.reload(true);
+             navigate('/dashboard');
+             window.location.reload(true);
           
             
         }
@@ -124,7 +127,7 @@ const Login = () => {
                                     </button>
                                 </div>
                                 <p className="mb-3 text-end">
-                                    <Link to="recover" className="">
+                                    <Link to="/recover" className="">
                                         Forgot your password?
                                     </Link>
                                 </p>

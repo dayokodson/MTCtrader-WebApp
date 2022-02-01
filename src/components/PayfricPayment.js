@@ -74,8 +74,8 @@ const PayfricPayment = () => {
                         </div>
 
                         <div className="row">
-                        <div className="col-12 text-center mb-4">
-                              <input type="text" onChange={(e) => setPaymentCode(e.target.value)} className="trasparent-input text-center" placeholder="Payment Code" />
+                        <div className="col-12 text-center mb-4" >
+                              <input type="text" onChange={(e) => setPaymentCode(e.target.value)} className="form-control text-center" placeholder="Enter Payment Code" />
                               <div className="text-center">
                                     <span className="text-secondary">Enter Payfric Payment Code</span>
                               </div>

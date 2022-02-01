@@ -6,7 +6,7 @@ const Header = (props) => {
           <header className="header position-fixed">
                             <div className="row">
                                 <div className="col-auto">
-                                    <a href="/dashboard" type="button" className="btn btn-light btn-44 back-btn">
+                                    <a href="/dashboard" className="btn btn-light btn-44 back-btn">
                                         <i className="bi bi-arrow-left"></i>
                                     </a>
                                 </div>

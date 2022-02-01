@@ -30,15 +30,7 @@ const NotFound = () => {
                     <div className="col-12 px-0 align-self-center">
                         <div className="row mx-0">
                             <div className="col-ld-6 position-relative thankyouimg2">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="341.488" height="309.4" viewBox="0 0 341.488 309.4" className="bg404bg">
-                                    <defs>
-                                      <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-                                        <stop offset="0" stop-color="#09b2fd"/>
-                                        <stop offset="1" stop-color="#6b00e5"/>
-                                      </linearGradient>
-                                    </defs>
-                                    <path id="verficationbg" d="M692.351,321.27c55.785,40.634,22.728,98.486,66.116,115.7s70.616-63.289,147.384-70.248,62.673-84.023,16.027-119.57-8.366-66.884-51.151-93.738-78.652,25.674-102.343,0-69.835-30.495-100.827-13.266-48.9,40.623-48.9,81.256C621.414,273.06,662.736,291.655,692.351,321.27Z" transform="translate(-618.659 -129.981)" fill="url(#linear-gradient)"/>
-                                  </svg>
+                                 
                                   
                                   
                                   

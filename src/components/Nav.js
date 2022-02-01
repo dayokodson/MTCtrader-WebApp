@@ -16,10 +16,7 @@ function logout(){
     window.localStorage.clear();
     navigate("/");
     window.location.reload(true);
-
-
-
-
+ 
 
 }
 
@@ -65,15 +62,15 @@ function logout(){
                         </li>
  
                         <li className="nav-item">
-                            <Link to="/mtcai" className="nav-link"  tabIndex="-1">
+                            <Link to="/marketfund" className="nav-link"  tabIndex="-1">
                                 <div className="avatar avatar-40 icon"><i className="bi bi-chat-text"></i></div>
-                                <div className="col">MTC AI</div>
+                                <div className="col">Market Fund</div>
                                 <div className="arrow"><i className="bi bi-chevron-right"></i></div>
                             </Link>
                         </li>
 
                         <li className="nav-item">
-                            <Link to="mtcforecast" className="nav-link"   tabIndex="-1">
+                            <Link to="forecast" className="nav-link"   tabIndex="-1">
                                 <div className="avatar avatar-40 icon"><i className="bi bi-bell"></i></div>
                                 <div className="col">Market Forecast</div>
                                 <div className="arrow"><i className="bi bi-chevron-right"></i></div>

@@ -45,8 +45,6 @@ const Deposit = () => {
                                 </div>
                                 <div className="row mb-3">
                                     <div className="col-12 px-0">
-
-                                     
                                         <div className="swiper-container connectionwiper">
                                             <div className="swiper-wrapper">
 
@@ -107,18 +105,15 @@ const Deposit = () => {
                                                 
                                             </div>
                                         </div>
-                                       
-                                    
-
                                     </div>
                                 </div>
 
                                 {
                                     {
-                                    'payfric': <PayfricPayment />,
-                                    'crypto': <CryptoPayment />,
-                                    'transfer': <LocalPayment />,
-                                    'metamask' : <MetaMaskPayment />
+                                        'payfric': <PayfricPayment />,
+                                        'crypto': <CryptoPayment />,
+                                        'transfer': <LocalPayment />,
+                                        'metamask' : <MetaMaskPayment />
                                     }[boardType]
                                 }
                             </div>

@@ -2,7 +2,7 @@
   * 
   * This is an helper functions that let you login, check if user is login, and register user
   */
-  import React from 'react'; 
+ 
   import urllink from "../constant/urllink";  
    
  
@@ -26,7 +26,7 @@ async function UserIsLogin () {
 
 const saveLoginDetails = (data) => {
  
-            
+            console.log(data);
             
             let fullname = data.fullname;
              
@@ -68,8 +68,9 @@ const saveLoginDetails = (data) => {
   
  async function regUser(userEmail, userPassword,userName,userPhone){
 
+    
     let message = {}
-
+    let uri = urllink.registerUrl;
     const requestOptions = {
           method: 'POST',
           headers: {
@@ -79,13 +80,13 @@ const saveLoginDetails = (data) => {
           body: JSON.stringify({ 
               email: userEmail, 
               password: userPassword, 
-              name: userName,
+              fullname: userName,
               phone: userPhone, 
-              puk: urllink.puk 
+               
           })
       };
        
-      let uri = urllink.registerUrl;
+    
      
 
       const result = fetch(uri, requestOptions)
@@ -125,7 +126,7 @@ const saveLoginDetails = (data) => {
                           
                       }
 
-                   window.localStorage.setItem('@fullname', userName);  
+                   window.localStorage.setItem('@registered', 'true');  
                    return message;
       
        })
@@ -133,7 +134,7 @@ const saveLoginDetails = (data) => {
             
               message = { 
                   error: 1,
-                  msg:  error
+                  msg:  "Invalid request"
                }
               
               return message;
@@ -189,8 +190,10 @@ async function logMeIn (userEmail, userPassword) {
 
         }else{
 
+          //save the email 
+
+          window.localStorage.setItem('@email', userEmail);
           //save the login details
-         
           saveLoginDetails(data)
               message = { 
                           error: 0,

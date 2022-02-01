@@ -16,8 +16,11 @@ import Withdraw from "./screens/Withdraw";
 import ThankYou from "./screens/ThankYou";
 import CreditGas from "./screens/CreditGas";
 import Settings from "./screens/Settings";
- 
- 
+import NotFound from "./screens/NotFound";
+import Forecast from "./screens/Forecast";
+import Review from "./screens/Review";
+import MarketFund from "./screens/MarketFund";
+import Terms from "./screens/Terms";
 
 const App = () => {
    
@@ -36,14 +39,15 @@ const App = () => {
         <Route exact path="/transaction" element={<Transactions/>}/>
         <Route exact path="/deposit" element={<Deposit/>}/>
         <Route exact path="/withdraw" element={<Withdraw/>}/>
-        <Route exact path="/mtcfund" element={<Dashboard/>}/>
-        <Route exact path="/mtcforecast" element={<Dashboard/>}/>
-        <Route exact path="/mtcreview" element={<Dashboard/>}/>
+        <Route exact path="/marketfund" element={<MarketFund/>}/>
+        <Route exact path="/forecast" element={<Forecast/>}/>
+        <Route exact path="/review" element={<Review/>}/>
         <Route exact path="/profile" element={<Profile/>}/>
         <Route exact path="/thankyou" element={<ThankYou/>} />
         <Route exact path="/settings" element={<Settings/>} />
         <Route exact path="/gas" element={<CreditGas />} />
-        <Route path="*" element={<Landing/>}/>
+        <Route exact path="/terms" element={<Terms />} />
+        <Route path="*" element={<NotFound/>}/>
       </Routes>
             
           
