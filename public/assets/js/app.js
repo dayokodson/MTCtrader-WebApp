@@ -1,7 +1,7 @@
 'use strict';
 
 $(window).on('load', function () {
-    console.log('checking ...')
+     
     var body = $('section');
 
  
@@ -767,12 +767,7 @@ $(window).on('load', function () {
                 pagination: false
             });
             break;
-        case 'login':
-            console.log('login');
-            break;
-        case '': 
-        console.log('hello');
-        break;
+         
     
     
     }
