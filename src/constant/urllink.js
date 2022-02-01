@@ -1,6 +1,6 @@
  
 //const baseUrl = //"https://connect.vairtualtoken.com/wp-json/api/v1";
-const baseUrl = "https://mtctraders.com/wp-json/mobile/v1";  //"http://localhost/wp-json/vatt/v1";
+const baseUrl = "http://localhost/wp-json/mobile/v1";  //"http://localhost/wp-json/vatt/v1";
 const puk = window.localStorage.getItem("@puk");
 
 const loginUrl = baseUrl + "/login/"

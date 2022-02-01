@@ -1,9 +1,29 @@
 import React from 'react';
 import {ReactComponent as NavSvg} from "../constant/navsvg.svg";
-import  { Link } from "react-router-dom";
-
+ 
+import  { useNavigate, Link } from "react-router-dom";
 
 const Nav = (props) => {
+
+    const navigate = useNavigate();
+
+
+
+function logout(){
+
+
+    //window.localStorage.removeItem('@isLogin'); 
+    window.localStorage.clear();
+    navigate("/");
+    window.location.reload(true);
+
+
+
+
+
+}
+
+
  return (
     <>
         <div className="sidebar-wrap  sidebar-overlay">
@@ -84,11 +104,11 @@ const Nav = (props) => {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/logout" className="nav-link"  tabIndex="-1">
+                            <button onClick={() => logout()} className="nav-link"  tabIndex="-1">
                                 <div className="avatar avatar-40 icon"><i className="bi bi-box-arrow-right"></i></div>
                                 <div className="col">Logout</div>
                                 <div className="arrow"><i className="bi bi-chevron-right"></i></div>
-                            </Link>
+                            </button>
                         </li>
                     </ul>
                 </div>

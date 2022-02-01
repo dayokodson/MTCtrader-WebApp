@@ -10,7 +10,7 @@ function Myalert (message, toggle){
         return (
 
             <div className="form-group form-floating is-invalid mb-3" style={{backgroundColor: "red", padding: "2px", color: "white", fontWeight: "bold"}}>
-                <div class="col-12 chat-list scroll-y mb-3">
+                <div className="col-12 chat-list scroll-y mb-3">
                     <div className="col-12">
                         <div className="chat-block">
                             <div className="row">

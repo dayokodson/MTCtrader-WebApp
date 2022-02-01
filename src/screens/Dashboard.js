@@ -18,11 +18,11 @@ const Dashboard = () => {
   const [alertMessage, setAlertMessage] = useState("");
   const [toggleAlert, setToggleAlert] = useState(false);
   const [showProcess, setShowProcess] = useState(false);
-  const [fullname, setFullname] = useState("Dayo Kodson");
-  const [wallet, setWallet] = useState(200);
-  const [gas, setGas] = useState(40);
-  const [totalBalance, setTotalBalance] = useState(gas + wallet);
-  const [phone, setPhone] = useState("+2347039416382");
+  const [fullname, setFullname] = useState("");
+  const [wallet, setWallet] = useState(0);
+  const [gas, setGas] = useState(0);
+  const [totalBalance, setTotalBalance] = useState(0);
+  const [phone, setPhone] = useState("");
   const [cryptoList, setCryptoList] = useState([]);
   const [transList, setTransList] = useState([]);
   const [reviewList, setReviewList] = useState([]);
@@ -32,44 +32,29 @@ const Dashboard = () => {
 		document.title = `MTCtrader - Wallet`;  
         let value = window.localStorage.getItem("@isLogin");
         if(value !== "true"){
-           // navigate("/");
-            
+            navigate("/");
+            window.location.reload(true);
         }
 
         if(fullname == ""){
              
             setFullname(window.localStorage.getItem("@name"));
-            setPhone(window.localStorage.getItem("@phone"));
+            setPhone(JSON.parse(window.localStorage.getItem("@phone")));
+            let walletBalance = JSON.parse(window.localStorage.getItem("@wallet")) * 1;
+            setWallet(walletBalance);
+            let gasBalance = JSON.parse(window.localStorage.getItem("@gas")) * 1;
+            setGas(gasBalance);
+            let cryptolist = JSON.parse(window.localStorage.getItem("@cryptolist"));
+            setCryptoList(cryptolist);
+            let translist = JSON.parse(window.localStorage.getItem("@transList"));
+            setTransList(translist);
+            let reviewlist = JSON.parse(window.localStorage.getItem("@reviewsList"));
+            setReviewList(reviewlist);
+            let totalbalane = gasBalance + walletBalance;
+            setTotalBalance(totalbalane);
         }
 
-        if(window.localStorage.getItem("@wallet")){
-
-            let wallet = window.localStorage.getItem("@wallet") * 1;
-            setWallet(wallet);
-
-        }
-        if(window.localStorage.getItem("@gas")){
-
-            let gas = window.localStorage.getItem("@gas") * 1;
-            setWallet(gas);
-        }
-        if(window.localStorage.getItem("@cryptoList")){
-
-            let list = JSON.parse(window.localStorage.getItem("@cryptoList"));
-            setCryptoList(list);
-        }
-
-        if(window.localStorage.getItem("@transList")){
-
-            let list = JSON.parse(window.localStorage.getItem("@transList"));
-            setTransList(list);
-        }
-
-        if(window.localStorage.getItem("@reviewsList")){
-
-            let list = JSON.parse(window.localStorage.getItem("@reviewsList"));
-            setReviewList(list);
-        }
+        
 
 
 

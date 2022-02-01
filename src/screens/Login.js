@@ -18,8 +18,8 @@ const Login = () => {
 		document.title = `MTCtrader - Signin`;  
         let value = window.localStorage.getItem("@isLogin");
         if(value == "true"){
-            navigate("/dashboard");
-            
+             navigate("/dashboard");
+             window.location.reload(true);
         }
 	  
 });
@@ -41,25 +41,24 @@ const Login = () => {
 
 
       
-        if(res.error || res.error == null){
+        if(res.error){
 
           
-          setAlertMessage( res.msg);
+          setAlertMessage( res.msg );
           setToggleAlert(true);
           setShowProcess(false);
-          navigate('/dashboard');
-          window.location.reload(true);
           return false;
 
         }else{
 
              
-             
+           
+            setAlertMessage( res.msg );
             setToggleAlert(true);
-            setShowProcess(false);
             setShowProcess(false);
             navigate('/dashboard');
             window.location.reload(true);
+          
             
         }
      

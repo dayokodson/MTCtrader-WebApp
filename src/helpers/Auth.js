@@ -26,34 +26,38 @@ async function UserIsLogin () {
 
 const saveLoginDetails = (data) => {
  
-
+            
             
             let fullname = data.fullname;
-            let puk = data.puk;
+             
            
             
             let userId = data.user_id * 1; 
-        
+             
             let wallet = JSON.stringify(data.wallet_balance);
-            let gas = JSON.stringify(data.gas_balance);
-            let transactions = JSON.stringify(data.trans);
-            let reviewsList = JSON.stringify(data.reviews_list);
-            let trendingCrypto = JSON.stringify(data.trending_crypto);
             
+            let gas = JSON.stringify(data.gas_balance);
+            
+            let transactions = JSON.stringify(data.trans);
+            
+            let reviewsList = JSON.stringify(data.review_list);
+             
+            let trendingCrypto = JSON.stringify(data.trending_crypto);
+            let phone = JSON.stringify(data.phone);
             
              
-            //let cb_pending_order = JSON.stringify(data.cb_pending_order);
-            //save all this details to global storage
+             
              
             window.localStorage.setItem('@wallet', wallet);
             window.localStorage.setItem('@gas', gas);
             window.localStorage.setItem('@userId', JSON.stringify(userId));
             window.localStorage.setItem('@name', fullname);
-            window.localStorage.setItem('@puk', puk); 
+           
             window.localStorage.setItem('@isLogin', 'true');
             window.localStorage.setItem('@transList', transactions);
             window.localStorage.setItem('@reviewsList', reviewsList);
             window.localStorage.setItem('@cryptolist', trendingCrypto);
+            window.localStorage.setItem('@phone', phone);
 
             
            
@@ -163,6 +167,7 @@ async function logMeIn (userEmail, userPassword) {
         const isJson = response.headers.get('content-type')?.includes('application/json');
         const data = isJson && await response.json();
         // check for error response
+        
         if (!response.ok) {
             // get error message from body or default to response status
              message = { 
@@ -180,14 +185,15 @@ async function logMeIn (userEmail, userPassword) {
                       error: data.error,
                       msg: data.message
                    }
-             
+                  
 
         }else{
 
           //save the login details
+         
           saveLoginDetails(data)
               message = { 
-                          error: 1,
+                          error: 0,
                           msg: data.message
                       }
         }
