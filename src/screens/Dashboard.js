@@ -113,7 +113,16 @@ const Dashboard = () => {
                                                         <div className="col-auto">
                                                             <div className="avatar avatar-40 p-1 shadow-sm shadow-danger rounded-15">
                                                                 <div className="icons  text-white rounded-12">
-                                                                    <img src="assets/img/gas_red.png" style={{ width: 30, height: 30 }}/>
+                                                                    {
+                                                                        gas > 5 ? 
+                                                                        <>
+                                                                            <img src="assets/img/gas_green.png" style={{ width: 30, height: 30 }}/>
+                                                                        </> : 
+                                                                        <>
+                                                                        <img src="assets/img/gas_red.png" style={{ width: 30, height: 30 }}/>
+                                                                        </>
+                                                                    }
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
