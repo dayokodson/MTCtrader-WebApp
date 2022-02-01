@@ -1,7 +1,20 @@
 
-import React from 'react'; 
-import  { Link } from "react-router-dom";
+import React, {useEffect} from 'react'; 
+import  { Link, useNavigate } from "react-router-dom";
 const Recover = () => {
+
+    const navigate = useNavigate();
+    useEffect(() => {
+    
+        let value = window.localStorage.getItem("@isLogin");
+        if(value == "true"){
+             navigate("/dashboard");
+             window.location.reload(true);
+        }
+      
+    });
+
+
  return (
     <>
         <main className="container-fluid h-100 ">

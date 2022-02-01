@@ -23,7 +23,7 @@ const QuickLinkModal = () => {
                             </div>
 
                             <div className="col-auto text-center">
-                                <Link to="Deposit" className="avatar avatar-70 p-1 shadow-sm shadow-warning rounded-20 bg-opac mb-2"  data-bs-dismiss="modal">
+                                <Link to="/Deposit" className="avatar avatar-70 p-1 shadow-sm shadow-warning rounded-20 bg-opac mb-2"  data-bs-dismiss="modal">
                                     <div className="icons text-warning">
                                         <i className="bi bi-wallet2 size-24"></i>
                                     </div>

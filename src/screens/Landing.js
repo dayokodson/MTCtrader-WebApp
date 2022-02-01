@@ -1,10 +1,23 @@
 
-import React from 'react';
-import  { Link } from "react-router-dom";
+import React, {useEffect} from 'react';
+import  { Link ,useNavigate} from "react-router-dom";
 import {ReactComponent as Svg1} from "../constant/logo1.svg";
 import {ReactComponent as Svg2} from "../constant/logo2.svg";
 import {ReactComponent as Svg3} from "../constant/logo3.svg";
 const Landing = () => {
+
+    const navigate = useNavigate();
+    useEffect(() => {
+    
+        let value = window.localStorage.getItem("@isLogin");
+        if(value == "true"){
+             navigate("/dashboard");
+             window.location.reload(true);
+        }
+      
+    });
+    
+    
  return (
     <>
        <section data-page="landing">      

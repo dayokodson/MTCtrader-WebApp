@@ -21,19 +21,6 @@ $(window).on('load', function () {
             }, 4000)
             break;
 
-        case "signin":
-            var passworderrorEl = document.getElementById('passworderror')
-            var tooltip = new bootstrap.Tooltip(passworderrorEl, {
-                boundary: document.body // or document.querySelector('#boundary')
-            })
-            break;
-
-        case "signup":
-            var passworderrorEl = document.getElementById('passworderror')
-            var tooltip = new bootstrap.Tooltip(passworderrorEl, {
-                boundary: document.body // or document.querySelector('#boundary')
-            })
-            break;
         case "verify":
 
             document.getElementById('timer').innerHTML = '03' + ':' + '00';
@@ -783,7 +770,9 @@ $(window).on('load', function () {
         case 'login':
             console.log('login');
             break;
-
+        case '': 
+        console.log('hello');
+        break;
     
     
     }

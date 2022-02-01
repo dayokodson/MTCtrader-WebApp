@@ -14,8 +14,9 @@ import Transactions from "./screens/Transactions";
 import Deposit from "./screens/Deposit"; 
 import Withdraw from "./screens/Withdraw";
 import ThankYou from "./screens/ThankYou";
-import VerifyEmail from "./screens/VerifyEmail";
+import CreditGas from "./screens/CreditGas";
 import Settings from "./screens/Settings";
+ 
  
 
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
         <Route exact path="/profile" element={<Profile/>}/>
         <Route exact path="/thankyou" element={<ThankYou/>} />
         <Route exact path="/settings" element={<Settings/>} />
+        <Route exact path="/gas" element={<CreditGas />} />
         <Route path="*" element={<Landing/>}/>
       </Routes>
             

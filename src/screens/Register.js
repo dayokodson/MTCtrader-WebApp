@@ -18,14 +18,16 @@ const navigate = useNavigate();
   const [showProcess, setShowProcess] = useState(false);
   const [loadingMsg, setLoadingMsg] = useState("Validating your wallet...")
 
- useEffect(() => {
-		document.title = `MTCtrader - Signin`;  
-        let value = window.localStorage.getItem("@isLogin");
-        if(value == "true"){
-            navigate("/dashboard");
-            
-        }
-	  
+
+  
+  useEffect(() => {
+    
+    let value = window.localStorage.getItem("@isLogin");
+    if(value == "true"){
+         navigate("/dashboard");
+         window.location.reload(true);
+    }
+  
 });
 
 
