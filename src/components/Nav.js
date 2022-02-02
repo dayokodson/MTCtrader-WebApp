@@ -70,7 +70,7 @@ function logout(){
                         </li>
 
                         <li className="nav-item">
-                            <Link to="forecast" className="nav-link"   tabIndex="-1">
+                            <Link to="/forecast" className="nav-link"   tabIndex="-1">
                                 <div className="avatar avatar-40 icon"><i className="bi bi-bell"></i></div>
                                 <div className="col">Market Forecast</div>
                                 <div className="arrow"><i className="bi bi-chevron-right"></i></div>

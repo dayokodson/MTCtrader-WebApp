@@ -1,6 +1,12 @@
-import React from 'react'; 
+import React, {useState} from 'react'; 
 import  { Link } from "react-router-dom";
+import ReviewReader from './ReviewReader';
 const MarketReviewList = (props) => {
+
+    const [docs, setDocs] = useState([]);
+
+
+ 
  return (
     <>
         {
@@ -22,24 +28,24 @@ const MarketReviewList = (props) => {
                             props.reviews ? 
                             props.reviews.map((function(item) {
                                 return (
-                                    <div className="col-12 col-md-6 col-lg-4">
-                                        <Link to="" className="card mb-3">
+                                    <div  key={item.id} className="col-12 col-md-6 col-lg-4">
+                                        <div onClick={() => {setDocs(item)}} className="card mb-3" data-bs-toggle="modal" data-bs-target="#readreview">
                                             <div className="card-body">
                                                 <div className="row">
                                                     <div className="col-auto">
                                                         <div className="avatar avatar-60 shadow-sm rounded-10 coverimg">
-                                                            <img src={item.picture} alt="" />
+                                                            <img src={item.picture} alt={item.id} />
                                                         </div>
                                                     </div>
                                                     <div className="col align-self-center ps-0">
-                                                        <p className="mb-1">{item.title}</p>
-                                                        <p className="text-muted size-12">
+                                                        <p className="mb-1"><b>{item.title}</b></p>
+                                                        <p className="text-muted size-12" style={{ textAlign: "justify" }}>
                                                             {item.summary}...
                                                         </p>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </Link>
+                                        </div>
                                     </div>
                                 )
                             })) : <></>
@@ -48,7 +54,7 @@ const MarketReviewList = (props) => {
                         
 
 
-                                    
+                    <ReviewReader  items={docs} />                 
                 </div>
             </>
             : <></>

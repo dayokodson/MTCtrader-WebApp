@@ -41,7 +41,7 @@ const App = () => {
         <Route exact path="/withdraw" element={<Withdraw/>}/>
         <Route exact path="/marketfund" element={<MarketFund/>}/>
         <Route exact path="/forecast" element={<Forecast/>}/>
-        <Route exact path="/review" element={<Review/>}/>
+        <Route exact path="/marketreview" element={<Review/>}/>
         <Route exact path="/profile" element={<Profile/>}/>
         <Route exact path="/thankyou" element={<ThankYou/>} />
         <Route exact path="/settings" element={<Settings/>} />

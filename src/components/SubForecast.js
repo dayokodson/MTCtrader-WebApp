@@ -6,33 +6,24 @@ const SubForecast = (props) => {
     const [itemKey, setItemKey] = useState(1);
     useEffect(() => {
 		 
-        if(props.item.type == "debit"){
-            setTransType("avatar avatar-15 border-danger rounded-circle")
-        }else{
-            setTransType("avatar avatar-15 border-success rounded-circle");
-        }
+        setTransType("avatar avatar-15 border-success rounded-circle");
 
-        if(props.id  > 0){
-            setItemKey(props.id);
-             
-        }
+         
 	  
 });
   
 
  return (
     <>
-                 <li  key={itemKey} className="list-group-item"> 
-
-                        <div class={transType}></div>
+                  <div className={transType}></div>
+                    <p>
                         <span className="text-color-theme">{props.item.title} | {props.item.note} </span>
-                        
-                        <br/>
-                        <p className="text-muted">Amount: ${props.item.amount}</p>
-                        <small className="text-muted">{props.item.date}</small>
-                    
-                </li>
 
+                        <br/>
+                        <small className="text-muted">Amount: ${props.item.amount}</small> |   
+                         
+                        <small className="text-muted" style={{textAlign: "left"}}> Date: {props.item.date}</small>
+                    </p>
      </>
  );
 

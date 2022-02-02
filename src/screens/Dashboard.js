@@ -123,7 +123,7 @@ const Dashboard = () => {
                                   
                                     <TransactionList trans={transList} />
                                   
-                                    <MarketReviewList reviews={reviewList}/>
+                                    <MarketReviewList reviews={reviewList} />
                                 
                                    
 

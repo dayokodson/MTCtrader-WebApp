@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'; 
 import  { Link } from "react-router-dom";
-import SubTrans from './SubTrans';
+import SubForecast from './SubForecast';
 const ForecastList = (props) => {
 
      
@@ -8,7 +8,7 @@ const ForecastList = (props) => {
  return (
     <>
           {
-            props.trans.length > 0 ? 
+            props.list.length > 0 ? 
             
             <>
                 <div className="main-container container">
@@ -16,10 +16,8 @@ const ForecastList = (props) => {
                                 <div className="col-12 col-md-12 col-lg-12">
                                     <div className="card shadow-sm mb-4">
                                         <div className="card-header">
-                                            <h6 className="my-1">Transactions</h6>
-                                            <p>
-                                                <Link to='/transaction' >View</Link>
-                                            </p>
+                                            <h6 className="my-1">Market Forecast</h6>
+                                             
                                         </div>
                                         <div className="card-body bg-light">
                                             <ul className="list-group list-group-flush w-100 bubble-sheet log-information">
@@ -27,9 +25,9 @@ const ForecastList = (props) => {
                                                 {
 
                                                     
-                                                    props.trans ? 
+                                                    props.list ? 
                                                     
-                                                    props.trans.map((function(item) {
+                                                    props.list.map((function(item) {
                                                            
                                                               
                                                                
@@ -37,7 +35,23 @@ const ForecastList = (props) => {
                                                                return (
                                                                         <>
                                                                         
-                                                                            <SubTrans item={item} id={item.id}/>
+                                                                        <li key={item.id} className="list-group-item"> 
+
+                                                                        <div className="avatar avatar-15 border-success rounded-circle"></div>
+                                                                            <p>
+                                                                                <span className="text-color-theme">R.O.I: {item.roi} %  | ASSETS: {item.assets} </span>
+
+                                                                                <br/>
+                                                                                <small className="text-muted">BUY/SELL: {item.trade_type}</small> | 
+                                                                                <small className="text-muted">DURATION: {item.duration}</small> |   
+                                                                                <br/>
+                                                                                <small className="text-muted">ENTRY: {item.entry}</small> |
+                                                                                <small className="text-muted" style={{textAlign: "left"}}> TARGET: {item.target}</small>
+                                                                                <br/>
+                                                                                <small className="text-muted" style={{textAlign: "left"}}> Date: {item.date}</small>
+                                                                            </p>
+
+                                                                        </li>
                                                                           
                                                                         </>
                                                                         

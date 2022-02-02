@@ -1,11 +1,16 @@
-import React from 'react';  
+import React, { useState, useEffect } from 'react';  
 import  { useNavigate, Link } from "react-router-dom";
 
 const Footer = () => {
 
     const navigate = useNavigate();
+    const [reviewHandle, setReviewHandel] = useState("");
+    const [forecastHandle, setForecastHandle] = useState("");
 
-    function logout(){
+    
+
+
+function logout(){
 
 
         //window.localStorage.removeItem('@isLogin'); 
@@ -14,7 +19,7 @@ const Footer = () => {
         window.location.reload(true);
     
 
-    } 
+} 
 
     return (
         <>
@@ -22,12 +27,12 @@ const Footer = () => {
                 <div className="container">
                     <ul className="nav nav-pills nav-justified">
                         <li className="nav-item">
-                            <a href="/marketreview" className="nav-link active">
+                            <Link to="/marketreview" className="nav-link active">
                                 <span>
-                                    <i className="nav-icon bi bi-house"></i>
-                                    <span className="nav-text">Market Review</span>
+                                    <i className="nav-icon bi bi-bag"></i>
+                                    <span className="nav-text">Review</span>
                                 </span>
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/forecast" className="nav-link active" >
@@ -53,7 +58,7 @@ const Footer = () => {
                                 </span>
                             </Link>
                         </li>
-                        <li className="nav-item">
+                        <li className="nav-item" >
                             <button onClick={() => logout()}   className="nav-link active" >
                                 <span className='avatar avatar-40 icon'>
                                     <i className="bi bi-box-arrow-right"></i>

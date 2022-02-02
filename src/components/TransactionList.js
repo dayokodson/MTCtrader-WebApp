@@ -3,7 +3,18 @@ import  { Link } from "react-router-dom";
 import SubTrans from './SubTrans';
 const TransactionList = (props) => {
 
-     
+    const [transType, setTransType] = useState("avatar avatar-15 border-danger rounded-circle")
+    useEffect(() => {
+		 
+        if(props.trans.type == "debit"){
+            setTransType("avatar avatar-15 border-danger rounded-circle")
+        }else{
+            setTransType("avatar avatar-15 border-success rounded-circle");
+        }
+
+        
+	  
+});
 
  return (
     <>
@@ -21,8 +32,8 @@ const TransactionList = (props) => {
                                                 <Link to='/transaction' >View</Link>
                                             </p>
                                         </div>
-                                        <div className="card-body bg-light">
-                                            <ul className="list-group list-group-flush w-100 bubble-sheet log-information">
+                                        <div class="card-body bg-light">
+                                            <ul class="list-group list-group-flush w-100 bubble-sheet log-information">
 
                                                 {
 
@@ -36,8 +47,18 @@ const TransactionList = (props) => {
                                                             
                                                                return (
                                                                         <>
-                                                                        
-                                                                            <SubTrans item={item} id={item.id}/>
+                                                                            
+                                                                                
+                                                                                <li key={item.id} className="list-group-item"> 
+
+                                                                                    <SubTrans item={item}/>
+
+                                                                                </li>
+
+
+
+                                                                            
+                                                                            
                                                                           
                                                                         </>
                                                                         
