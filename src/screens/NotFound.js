@@ -1,6 +1,6 @@
 
 import React from 'react'; 
-import  { Link } from "react-router-dom";
+ 
 const NotFound = () => {
  return (
     <>
@@ -51,7 +51,7 @@ const NotFound = () => {
             <div className="col-11 col-sm-11 mt-auto mx-auto py-4">
                 <div className="row ">
                     <div className="col-12 d-grid">
-                        <Link href="/dashboard" className="btn btn-default btn-lg shadow-sm">Back Home</Link>
+                        <a href="/dashboard" className="btn btn-default btn-lg shadow-sm">Back Home</a>
                     </div>
                 </div>
             </div>

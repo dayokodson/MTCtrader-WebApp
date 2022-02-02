@@ -21,7 +21,7 @@ const ReviewReader = (props) => {
                                 </div>
                                 <div className='row' >
                                     <div className='lg-12 avatar avatar-500 shadow-sm rounded-10 coverimg' >
-                                        <img src="assets/img/logo.png" alt='hello'/>
+                                        <img src={props.items.picture} alt='hello'/>
                                          
                                     </div>
                                     <br/><br/>

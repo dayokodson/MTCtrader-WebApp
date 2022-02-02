@@ -1,62 +1,70 @@
-import React from "react";
-import  { Link } from "react-router-dom";
-import Nav from "../components/Nav";
-import Footer from "../components/Footer"; 
-import Header from "../components/Header";
-import QuickLinkModal from "../components/QuickLinkModal";
-import {ReactComponent as Svg2} from "../constant/logo2.svg";
+
+import React from 'react'; 
  
-
-
 const MarketFund = () => {
  return (
     <>
-
-<main className="h-100 body-scroll"   >
-
- 
-        <Header title="Profile"/>
-
-        <div className="main-container container">
-            <div  style={{ marginTop: "50px" }}>
-                <div className="row my-4">
-                    <div className="col-12 col-md-6 mx-auto">
-                        <h1 className="mb-3"><span className="fw-light text-secondary">Profile</span><br/>Update</h1>
-                        <p className="text-secondary mb-4">Profile information!</p>
-
-                        <div className="form-floating mb-3 is-valid">
-                            <input type="text" className="form-control" id="emailaddress" placeholder="name@example.com" value={window.localStorage.getItem("@name")} />
-                            <label for="emailaddress">Display Name</label>
-                             
+       <main className="container-fluid h-100 ">
+        <div className="row h-100">
+            <div className="col-11 col-sm-11 mx-auto">
+                
+                <div className="row">
+                    <header className="header">
+                        <div className="row">
+                            <div className="col">
+                                <div className="logo-small">
+                                    <img src="assets/img/logo.png" alt="" />
+                                    <h5><span className="text-secondary fw-light">MTC</span><br />trader</h5>
+                                </div>
+                            </div>
+                            <div className="col-auto align-self-center">
+                                
+                            </div>
                         </div>
-                        <div className="form-floating mb-3 is-valid">
-                            <input type="email" className="form-control" id="emailaddress" placeholder="name@example.com" value={JSON.parse(window.localStorage.getItem("@email"))} />
-                            <label for="emailaddress">Email</label>
-                            <button type="button" className="btn btn-link text-success tooltip-btn valid-tooltip"
-                                data-bs-toggle="tooltip" data-bs-placement="left" title="Email is valid">
-                                <i className="bi bi-check-circle"></i>
-                            </button>
-                        </div> 
-                        <div className="form-floating mb-3">
-                            <input type="text" className="form-control" value={JSON.parse(window.localStorage.getItem("@phone"))} />
-                            <label for="emailaddress">Phone number</label>
-                             
+                    </header>
+                </div>
+                 
+            </div>
+            <div className="col-12 align-self-center pb-3" style={{ marginTop: "100px" }}>
+                <div className="row h-100">
+                    <div className="col-12 px-0 align-self-center">
+                        <div className="row mx-0">
+                            <div className="col-ld-6 position-relative thankyouimg2">
+                                 
+                                  
+                                  
+                                  
+                                <div className="text">Market Fund</div>
+                                <div className="circle small one"></div>
+                                <div className="circle two"></div>
+                                <div className="circle small three"></div>                                              
+                                <img src="assets/img/404.svg" alt="" className="slideimg404" />
+                            </div>
+                            <div className="col-11 col-md-8 col-lg-4  col-ld-6 mx-auto">
+                                <h1 className="mb-4"><span className="text-secondary fw-light">Not </span><br/> available</h1>
+                                <p className="text-secondary">
+                                    Market fun not available on the mobile app at the moment, kindly visit https://mtctraders.com to access market fund.
+                                </p>
+                            </div>
                         </div>
-                         
-                        
                     </div>
                 </div>
             </div>
-            
-             
-            
-             
+            <div className="col-11 col-sm-11 mt-auto mx-auto py-4">
+                <div className="row ">
+                    <div className="col-12 d-grid">
+                        <a href="/dashboard" className="btn btn-default btn-lg shadow-sm">Back Home</a>
+                    </div>
+                </div>
+            </div>
         </div>
+    </main>
 
-</main>
-    
+
     </>
- );
-}
+
+    
+  );
+};
 
 export default MarketFund;
