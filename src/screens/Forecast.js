@@ -1,60 +1,46 @@
-import React from "react";
-import  { Link } from "react-router-dom";
-import Nav from "../components/Nav";
-import Footer from "../components/Footer"; 
+import React, {useEffect, useState}  from "react"; 
+import BalanceBoard from "../components/BalanceBoard"; 
 import Header from "../components/Header";
-import QuickLinkModal from "../components/QuickLinkModal";
-import {ReactComponent as Svg2} from "../constant/logo2.svg";
+import ForecastList from "../components/ForecastList";
+ 
+const Forecast = () => {
+
+ 
+     
+    const [forecastList, setForecastList] = useState([]);
+    useEffect(() => {
+
+        if(window.localStorage.getItem("@forecastList")){
+            let list = JSON.parse(window.localStorage.getItem("@forecastList"));
+            setForecastList(list);
+        }
+        
+
+    })
  
 
-
-const Forecast = () => {
  return (
     <>
+     <section className="body-scroll" data-page="" msg="Checking your gas">
+            
+                    <main className="h-100">
 
-<main className="h-100 body-scroll"   >
-
- 
-        <Header title="Profile"/>
-
-        <div className="main-container container">
-            <div  style={{ marginTop: "50px" }}>
-                <div className="row my-4">
-                    <div className="col-12 col-md-6 mx-auto">
-                        <h1 className="mb-3"><span className="fw-light text-secondary">Profile</span><br/>Update</h1>
-                        <p className="text-secondary mb-4">Profile information!</p>
-
-                        <div className="form-floating mb-3 is-valid">
-                            <input type="text" className="form-control" id="emailaddress" placeholder="name@example.com" value={window.localStorage.getItem("@name")} />
-                            <label for="emailaddress">Display Name</label>
-                             
+                       <Header title="Market Forecast"/>
+                        <div  style={{ marginTop: "80px" }}>
+                            <BalanceBoard />
                         </div>
-                        <div className="form-floating mb-3 is-valid">
-                            <input type="email" className="form-control" id="emailaddress" placeholder="name@example.com" value={JSON.parse(window.localStorage.getItem("@email"))} />
-                            <label for="emailaddress">Email</label>
-                            <button type="button" className="btn btn-link text-success tooltip-btn valid-tooltip"
-                                data-bs-toggle="tooltip" data-bs-placement="left" title="Email is valid">
-                                <i className="bi bi-check-circle"></i>
-                            </button>
-                        </div> 
-                        <div className="form-floating mb-3">
-                            <input type="text" className="form-control" value={JSON.parse(window.localStorage.getItem("@phone"))} />
-                            <label for="emailaddress">Phone number</label>
-                             
-                        </div>
-                         
                         
-                    </div>
-                </div>
-            </div>
-            
-             
-            
-             
-        </div>
+                        <div className="main-container container">
+                           
+                            <ForecastList items={forecastList} />
 
-</main>
-    
+                        </div>
+
+
+                    </main>
+
+               
+     </section>
     </>
  );
 }

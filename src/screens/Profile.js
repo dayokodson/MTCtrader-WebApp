@@ -18,7 +18,7 @@ const Profile = () => {
         <Header title="Profile"/>
 
         <div className="main-container container">
-            <div  style={{ marginTop: "50px" }}>
+            <div  style={{ marginTop: "70px" }}>
                 <div className="row my-4">
                     <div className="col-12 col-md-6 mx-auto">
                         <h1 className="mb-3"><span className="fw-light text-secondary">Profile</span><br/>Update</h1>

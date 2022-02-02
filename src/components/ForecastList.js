@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'; 
 import  { Link } from "react-router-dom";
 import SubTrans from './SubTrans';
-const TransactionList = (props) => {
+const ForecastList = (props) => {
 
      
 
@@ -69,4 +69,4 @@ const TransactionList = (props) => {
  );
 }
 
-export default TransactionList;
+export default ForecastList;

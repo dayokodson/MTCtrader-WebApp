@@ -51,7 +51,7 @@ const NotFound = () => {
             <div className="col-11 col-sm-11 mt-auto mx-auto py-4">
                 <div className="row ">
                     <div className="col-12 d-grid">
-                        <a href="/" className="btn btn-default btn-lg shadow-sm">Back Home</a>
+                        <Link href="/dashboard" className="btn btn-default btn-lg shadow-sm">Back Home</Link>
                     </div>
                 </div>
             </div>

@@ -34,7 +34,7 @@ const MarketReviewList = (props) => {
                                                     <div className="col align-self-center ps-0">
                                                         <p className="mb-1">{item.title}</p>
                                                         <p className="text-muted size-12">
-                                                            {item.summary}
+                                                            {item.summary}...
                                                         </p>
                                                     </div>
                                                 </div>

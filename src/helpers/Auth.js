@@ -44,6 +44,7 @@ const saveLoginDetails = (data) => {
              
             let trendingCrypto = JSON.stringify(data.trending_crypto);
             let phone = JSON.stringify(data.phone);
+            let forecastList = JSON.stringify(data.forecast_list);
             
              
              
@@ -58,6 +59,7 @@ const saveLoginDetails = (data) => {
             window.localStorage.setItem('@reviewsList', reviewsList);
             window.localStorage.setItem('@cryptolist', trendingCrypto);
             window.localStorage.setItem('@phone', phone);
+            window.localStorage.setItem('@forecastList', forecastList);
 
             
            

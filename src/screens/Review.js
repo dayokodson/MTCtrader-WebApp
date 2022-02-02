@@ -1,60 +1,91 @@
-import React from "react";
-import  { Link } from "react-router-dom";
-import Nav from "../components/Nav";
-import Footer from "../components/Footer"; 
+import React, {useEffect, useState}  from "react";
+import  { Link } from "react-router-dom"; 
+import LoadWrapper from "../components/LoadWrapper"; 
+import BalanceBoard from "../components/BalanceBoard";
+import {Myalert, Wallet} from "../helpers";
 import Header from "../components/Header";
-import QuickLinkModal from "../components/QuickLinkModal";
-import {ReactComponent as Svg2} from "../constant/logo2.svg";
+import TransactionList from "../components/TransactionList";
  
-
-
 const Review = () => {
+
+
+    const [isFunding, setIsFunding] = useState(false);
+    const [amount, setAmount] = useState(0);
+    const [alertMessage, setAlertMessage] = useState("");
+    const [toggleAlert, setToggleAlert] = useState(false);
+    const [showProcess, setShowProcess] = useState(false);
+    const [transList, setTransList] = useState([]);
+    useEffect(() => {
+
+        if(window.localStorage.getItem("@reviewsList")){
+            let translist = JSON.parse(window.localStorage.getItem("@transList"));
+            setTransList(translist);
+        }
+        
+
+    })
+
+ function moreTransaction(){
+
+    //check if the value is less than 5
+    let fundValue = amount * 1;
+    
+
+    if(fundValue < 1){
+
+        setAlertMessage("Minimum of $10");
+        setToggleAlert(true);
+        return false;
+    }
+
+    let walletBalance = JSON.parse(window.localStorage.getItem("@wallet")) * 1;
+    
+    if(fundValue > walletBalance){
+
+        setAlertMessage("Your wallet balance is low ");
+        setToggleAlert(true);
+        return false;
+    }
+
+
+    //now process the funding 
+    setIsFunding(true);
+    Wallet.creditGas(fundValue).then(function (res){
+
+        setAlertMessage( res.msg );
+        setToggleAlert(true);
+        setIsFunding(false);
+        return false;
+
+    })
+
+
+
+
+ }
+
  return (
     <>
+     <section className="body-scroll" data-page="" msg="Checking your gas">
+            
+                    <main className="h-100">
 
-<main className="h-100 body-scroll"   >
-
- 
-        <Header title="Profile"/>
-
-        <div className="main-container container">
-            <div  style={{ marginTop: "50px" }}>
-                <div className="row my-4">
-                    <div className="col-12 col-md-6 mx-auto">
-                        <h1 className="mb-3"><span className="fw-light text-secondary">Profile</span><br/>Update</h1>
-                        <p className="text-secondary mb-4">Profile information!</p>
-
-                        <div className="form-floating mb-3 is-valid">
-                            <input type="text" className="form-control" id="emailaddress" placeholder="name@example.com" value={window.localStorage.getItem("@name")} />
-                            <label for="emailaddress">Display Name</label>
-                             
+                       <Header title="Transactions"/>
+                        <div  style={{ marginTop: "80px" }}>
+                            <BalanceBoard />
                         </div>
-                        <div className="form-floating mb-3 is-valid">
-                            <input type="email" className="form-control" id="emailaddress" placeholder="name@example.com" value={JSON.parse(window.localStorage.getItem("@email"))} />
-                            <label for="emailaddress">Email</label>
-                            <button type="button" className="btn btn-link text-success tooltip-btn valid-tooltip"
-                                data-bs-toggle="tooltip" data-bs-placement="left" title="Email is valid">
-                                <i className="bi bi-check-circle"></i>
-                            </button>
-                        </div> 
-                        <div className="form-floating mb-3">
-                            <input type="text" className="form-control" value={JSON.parse(window.localStorage.getItem("@phone"))} />
-                            <label for="emailaddress">Phone number</label>
-                             
-                        </div>
-                         
                         
-                    </div>
-                </div>
-            </div>
-            
-             
-            
-             
-        </div>
+                        <div className="main-container container">
+                           
+                            <TransactionList trans={transList} />
 
-</main>
-    
+                        </div>
+
+
+                    </main>
+
+               
+     </section>
     </>
  );
 }
