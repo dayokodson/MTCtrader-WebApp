@@ -45,7 +45,8 @@ const saveLoginDetails = (data) => {
             let trendingCrypto = JSON.stringify(data.trending_crypto);
             let phone = JSON.stringify(data.phone);
             let forecastList = JSON.stringify(data.forecast_list);
-            
+            let crypto_pending_deposit =  data.crypto_pending_deposit;
+            let bank_pending_deposit =  data.bank_pending_deposit;
              
              
              
@@ -60,6 +61,9 @@ const saveLoginDetails = (data) => {
             window.localStorage.setItem('@cryptolist', trendingCrypto);
             window.localStorage.setItem('@phone', phone);
             window.localStorage.setItem('@forecastList', forecastList);
+            window.localStorage.setItem('@cryptoPendingDeposit', crypto_pending_deposit);
+            window.localStorage.setItem('@bankPendingDeposit', bank_pending_deposit);
+            
 
             
            
@@ -221,166 +225,7 @@ async function logMeIn (userEmail, userPassword) {
 
   }
 
- 
-
-
-
-
-
-
-  async function toVairt (cryptoAmount, wallet) {
-
-
-    let userId =  window.localStorage.getItem("@userId");
-
-    let message = {}
-      let uri = urllink.depositCrypto;
-      let puk = urllink.puk;
-      const requestOptions = {
-          method: 'POST',
-          headers: {
-              'Accept': 'application/json, text/plain, */*',  // It can be used to overcome cors errors
-              'Content-Type': 'application/json'
-            },
-          body: JSON.stringify({ 
-            //user_id: userId, 
-            amount: cryptoAmount, 
-            crypto: wallet,
-            puk: puk })
-      };
-     
-      
-       
-      const result = fetch(uri, requestOptions)
-      .then( async response => {
-          const isJson = response.headers.get('content-type')?.includes('application/json');
-          const data = isJson && await response.json();
-          // check for error response
-          if (!response.ok) {
-              // get error message from body or default to response status
-               message = { 
-                    error: data.error,
-                    msg: (data && data.message) || response.status,
-                  
-                    
-                }
-              return message;
-              
-          }
-  
-          
-          if(data.error){
-                  message = { 
-                        error: data.error,
-                        msg: data.message
-                     }
-              return message;
-  
-          }else{
-  
-              message = { error: data.error,
-                            msg: data.message,
-                            balance: data.balance
-                        }
-  
-                return message;
    
-          }
-              
-      })
-      .catch(error => {
-           message = { 
-                  error: true,
-                  msg: "Network fail. Please try again."
-                  
-              }
-          return message;
-  
-      });
-  
-  
-  return await result;
-  
-    }
-
-
-
-async function depostCrypto (cryptoAmount, tHash, symbol) {
-
-
-      let userId =  window.localStorage.getItem("@userId");
-  
-      let message = {}
-        let uri = urllink.depositCrypto;
-        let puk = urllink.puk;
-        const requestOptions = {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',  // It can be used to overcome cors errors
-                'Content-Type': 'application/json'
-              },
-            body: JSON.stringify({ 
-              user_id: userId, 
-              amount: cryptoAmount, 
-              t_hash: tHash,
-              symbol: symbol,
-              puk: puk })
-        };
-       
-        
-         
-        const result = fetch(uri, requestOptions)
-        .then( async response => {
-            const isJson = response.headers.get('content-type')?.includes('application/json');
-            const data = isJson && await response.json();
-            // check for error response
-            if (!response.ok) {
-                // get error message from body or default to response status
-                 message = { 
-                      error: data.error,
-                      msg: (data && data.message) || response.status,
-                    
-                      
-                  }
-                return message;
-                
-            }
-    
-            
-            if(data.error){
-                    message = { 
-                          error: data.error,
-                          msg: data.message
-                       }
-                return message;
-    
-            }else{
-    
-                message = { error: data.error,
-                              msg: data.message,
-                              balance: data.balance
-                          }
-    
-                  return message;
-     
-            }
-                
-        })
-        .catch(error => {
-             message = { 
-                    error: true,
-                    msg: "Network fail. Please try again."
-                    
-                }
-            return message;
-    
-        });
-    
-    
-    return await result;
-    
-}
-  
   
 async function signout  () {
 

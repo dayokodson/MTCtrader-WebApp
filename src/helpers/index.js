@@ -1,39 +1,39 @@
-  
-//import { Alert } from "react-bootstrap";
+import React from "react";  
+import { Alert } from "react-bootstrap";
 
 import {Auth} from "./Auth"; 
 
 import {Wallet} from "./Wallet"; 
+import { render } from "@testing-library/react";
  
  
-function Myalert (message, toggle){
+const Myalert = (props) => {
 
-    if(toggle){
-        return (
+    return    (
+        <>
 
-            <div className="form-group form-floating is-invalid mb-3" style={{backgroundColor: "red", padding: "2px", color: "white", fontWeight: "bold"}}>
-                <div className="col-12 chat-list scroll-y mb-3">
-                    <div className="col-12">
-                        <div className="chat-block">
-                            <div className="row">
-                                <div className="col">
-                                    Hi!<br />{message}.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        )
-    
-    }else{
-
-        return (
-            <>
+                {
+                    props.toggle ?  <>
+                
+                <Alert variant="success">
+                    <Alert.Heading>Hi,</Alert.Heading>
+                    <p>
+                       {props.message}
+                    </p>
+                     
+                     
+                    </Alert>
+                    
+                    </>: <>
+                    
+                    
+                    </>
+                }
+                
             </>
-        );
-    }
+    )  
+        
+    
     
 
 }

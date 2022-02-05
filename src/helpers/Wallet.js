@@ -53,10 +53,7 @@
 
 async function  AddWallet(address, privateKey, pukKey){
     
-
-  //console.log(pukKey);
-  //console.log(address);
-  //console.log(privateKey);
+ 
     let message = {}
       let uri = urllink.addwallet;
       
@@ -157,7 +154,7 @@ async function Withdraw (userAmount, userID, userEmail){
           
       }
 
-      console.log(data);
+      
       if(data.error){
               message = { 
                     error: data.error,
@@ -199,8 +196,7 @@ async function CreditGas  (userAmount) {
   let uri = urllink.creditGas;
   let puk = urllink.puk;
   let user = JSON.parse(window.localStorage.getItem("@userId"));
-  console.log(window.localStorage);
-  console.log(user);
+   
   const requestOptions = {
       method: 'POST',
       headers: {
@@ -269,14 +265,193 @@ async function CreditGas  (userAmount) {
 
 async function validatePaymentCode (paymentCode) {}
 
+
+
+async function confirmdeposit  (depositType) {
+
+  let message = {}
+  let uri = urllink.confirmdeposit;
+  let puk = urllink.puk;
+  let user = JSON.parse(window.localStorage.getItem("@userId"));
   
+  const requestOptions = {
+      method: 'POST',
+      headers: {
+          'Accept': 'application/json, text/plain, */*',  // It can be used to overcome cors errors
+          'Content-Type': 'application/json'
+        },
+      body: JSON.stringify({ user_id: user, type: depositType })
+  };
+ 
+  const result = fetch(uri, requestOptions)
+  .then( async response => {
+      const isJson = response.headers.get('content-type')?.includes('application/json');
+      const data = isJson && await response.json();
+      // check for error response
+      
+      if (!response.ok) {
+          // get error message from body or default to response status
+           message = { 
+                error: data.error,
+                msg: (data && data.message) || response.status
+                
+            }
+          return message;
+          
+      }
+
+      
+      if(data.error){
+              message = { 
+                    error: data.error,
+                    msg: data.message
+                 }
+                
+
+      }else{
+
+        //save the login details
+       
+        //saveLoginDetails(data)
+        let type_name = "@" + depositType + "PendingDeposit";
+        let wallet = JSON.stringify(data.wallet_balance);
+        let gas = JSON.stringify(data.gas_balance);
+        let transactions = JSON.stringify(data.trans);
+        let reviewsList = JSON.stringify(data.review_list);
+        let forecastList = JSON.stringify(data.forecast_list);
+        
+        let pending_deposit_result = JSON.stringify(data.pending_deposit);
+        window.localStorage.setItem(type_name, pending_deposit_result);
+        window.localStorage.setItem('@wallet', wallet);
+        window.localStorage.setItem('@gas', gas);
+        window.localStorage.setItem('@transList', transactions);
+        window.localStorage.setItem('@reviewsList', reviewsList);
+        window.localStorage.setItem('@forecastList', forecastList);
+        
+    
+            message = { 
+                        error: 0,
+                        msg: data.message
+                    }
+      }
+
+      return message;
+          
+  })
+  .catch(error => {
+       message = { 
+              error: true,
+              msg: error
+              
+          }
+      return message;
+
+  });
+
+  return await result;
+
+}
+
+
+async function savedeposit  (amount,depositType, txId, bank, depositorName) {
+
+  let message = {}
+  let uri = urllink.savedeposit;
+  let puk = urllink.puk;
+  let user = JSON.parse(window.localStorage.getItem("@userId"));
+   
+  const requestOptions = {
+      method: 'POST',
+      headers: {
+          'Accept': 'application/json, text/plain, */*',  // It can be used to overcome cors errors
+          'Content-Type': 'application/json'
+        },
+      body: JSON.stringify({ 
+        user_id: user, amount: amount, 
+        type: depositType, txid: txId,
+        bank: bank, depositor_name: depositorName 
+      })
+  };
+ 
+  const result = fetch(uri, requestOptions)
+  .then( async response => {
+      const isJson = response.headers.get('content-type')?.includes('application/json');
+      const data = isJson && await response.json();
+      // check for error response
+      
+      if (!response.ok) {
+          // get error message from body or default to response status
+           message = { 
+                error: data.error,
+                msg: (data && data.message) || response.status
+                
+            }
+          return message;
+          
+      }
+
+      
+      if(data.error){
+              message = { 
+                    error: data.error,
+                    msg: data.message
+                 }
+                
+
+      }else{
+
+        //save the login details
+       
+        //saveLoginDetails(data)
+        let type_name = "@" + depositType + "PendingDeposit";
+        let wallet = JSON.stringify(data.wallet_balance);
+        let gas = JSON.stringify(data.gas_balance);
+        let transactions = JSON.stringify(data.trans);
+        let reviewsList = JSON.stringify(data.review_list);
+        let forecastList = JSON.stringify(data.forecast_list);
+        
+        let pending_deposit_result =  data.pending_deposit;
+        window.localStorage.setItem(type_name, pending_deposit_result);
+        window.localStorage.setItem('@wallet', wallet);
+        window.localStorage.setItem('@gas', gas);
+        window.localStorage.setItem('@transList', transactions);
+        window.localStorage.setItem('@reviewsList', reviewsList);
+        window.localStorage.setItem('@forecastList', forecastList);
+        
+        
+    
+            message = { 
+                        error: 0,
+                        msg: data.message
+                    }
+      }
+
+      return message;
+          
+  })
+  .catch(error => {
+       message = { 
+              error: true,
+              msg: error
+              
+          }
+      return message;
+
+  });
+
+  return await result;
+
+}
+
    
   export const Wallet = {
   
     addWallet: AddWallet,
     creditGas : CreditGas,
     validatePayfricPayment: validatePaymentCode,
-    withdraw : Withdraw
+    withdraw : Withdraw,
+    confirmDeposit: confirmdeposit,
+    saveDeposit: savedeposit
      
   }
 

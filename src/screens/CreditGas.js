@@ -4,7 +4,10 @@ import LoadWrapper from "../components/LoadWrapper";
 import BalanceBoard from "../components/BalanceBoard";
 import {Myalert, Wallet} from "../helpers";
 import Header from "../components/Header";
- 
+import Footer from "../components/Footer";
+import QuickLinkModal from "../components/QuickLinkModal";
+
+
 const CreditGas = () => {
 
 
@@ -129,7 +132,9 @@ const CreditGas = () => {
 
                     </main>
 
-               
+            <Footer />  
+            <QuickLinkModal />     
+             
      </section>
     </>
  );

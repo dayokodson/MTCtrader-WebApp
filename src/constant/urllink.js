@@ -12,6 +12,8 @@ const addwallet = baseUrl + "/add_wallet";
 const creditGas = baseUrl + "/creditgas";
 const forecastList = baseUrl + "/forecastlist";
 const marketfundlist = baseUrl + "/marketfundlist";
+const confirmdeposit = baseUrl + "/confirmdeposit";
+const savedeposit = baseUrl + "/savedeposit";
 
 
  
@@ -24,7 +26,9 @@ export default {
     addwallet,
     creditGas,
     forecastList,
-    marketfundlist
+    marketfundlist,
+    confirmdeposit,
+    savedeposit
 
     
     

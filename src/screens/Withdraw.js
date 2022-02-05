@@ -4,6 +4,9 @@ import BalanceBoard from "../components/BalanceBoard";
 import Header from "../components/Header";
 import {Myalert} from "../helpers";
 import LoadWrapper from "../components/LoadWrapper"; 
+import Footer from "../components/Footer";
+import QuickLinkModal from "../components/QuickLinkModal";
+
 
 const Withdraw = () => {
 
@@ -106,7 +109,8 @@ const Withdraw = () => {
 
                     </main>
 
-               
+        <Footer /> 
+        <QuickLinkModal />         
      </section>
     </>
  );

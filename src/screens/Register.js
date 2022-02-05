@@ -143,7 +143,8 @@ const navigate = useNavigate();
                                     <p className="mb-3"><span className="text-muted">By clicking on Sign up button, you are agree to the our </span> 
                                     <Link to="/terms">Terms and Conditions</Link></p>
 
-                                     { Myalert(alertMessage, toggleAlert)  }  
+                                    <Myalert message={alertMessage} toggle={ toggleAlert} /> 
+
                             </div>
                             <div className="col-11 col-sm-11 mt-auto mx-auto py-4">
                                 <div className="row ">

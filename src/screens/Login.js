@@ -137,8 +137,9 @@ const Login = () => {
                                     </Link>
                                 </p>
 
-                            { Myalert(alertMessage, toggleAlert)  }  
+                              <Myalert message={alertMessage} toggle={ toggleAlert} /> 
 
+                               
                             </div>
                             <div className="col-11 col-sm-11 mt-auto mx-auto py-4">
                                 <div className="row ">

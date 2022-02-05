@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import QuickLinkModal from "../components/QuickLinkModal";
 import {ReactComponent as Svg2} from "../constant/logo2.svg";
  
+ 
 
 
 const Profile = () => {
@@ -52,7 +53,9 @@ const Profile = () => {
             
              
         </div>
-
+        <br/><br/><br/>                        
+        <Footer /> 
+        <QuickLinkModal /> 
 </main>
     
     </>

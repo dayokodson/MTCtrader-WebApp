@@ -5,6 +5,9 @@ import BalanceBoard from "../components/BalanceBoard";
 import {Myalert, Wallet} from "../helpers";
 import Header from "../components/Header";
 import TransactionList from "../components/TransactionList";
+
+import Footer from "../components/Footer";
+import QuickLinkModal from "../components/QuickLinkModal";
  
 const Transactions = () => {
 
@@ -85,7 +88,11 @@ const Transactions = () => {
 
                     </main>
 
-               
+
+
+        <br/><br/><br/>
+        <Footer /> 
+        <QuickLinkModal />           
      </section>
     </>
  );

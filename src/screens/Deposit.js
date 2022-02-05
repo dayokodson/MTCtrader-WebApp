@@ -6,6 +6,8 @@ import CryptoPayment from "../components/CryptoPayment";
 import MetaMaskPayment from "../components/MetaMaskPayment";
 import BalanceBoard from "../components/BalanceBoard";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
+import QuickLinkModal from "../components/QuickLinkModal";
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
@@ -55,13 +57,13 @@ const Deposit = () => {
                                                 >
                                                     
                                                     <SwiperSlide className="text-center"> 
-                                                        <div onClick={()=> selectPaymentMethod("payfric")} className="card bg-opac-50 mb-2">
+                                                        <button onClick={()=> selectPaymentMethod("payfric")} className="card bg-opac-50 mb-2">
                                                             <div className="card-body p-1">
                                                                 <div className="avatar avatar-70 bg-white text-color-theme rounded-18 shadow-sm">
                                                                 <img src="/assets/img/payfricp.png" />
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </button>
                                                         <p className="mb-1 small">Payfric</p>
                                                     </SwiperSlide>
                                                     <SwiperSlide className="text-center"> 
@@ -127,8 +129,9 @@ const Deposit = () => {
 
 
                     </main>
-
-               
+        <br/><br/><br/>                        
+        <Footer /> 
+        <QuickLinkModal />             
      </section>
     </>
  );
