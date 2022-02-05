@@ -59,12 +59,12 @@ function logout(){
                             </Link>
                         </li>
                         <li className="nav-item" >
-                            <button onClick={() => logout()}   className="nav-link active" >
+                            <a href="https://t.me/mtcforecasting"  className="nav-link active" >
                                 <span className='avatar avatar-40 icon'>
-                                    <i className="bi bi-box-arrow-right"></i>
-                                    <span className="nav-text">Logout</span>
+                                    <i className="bi bi-telegram"></i>
+                                    <span className="nav-text">Circle</span>
                                 </span>
-                            </button>
+                            </a>
                         </li>
                     </ul>
                 </div>
