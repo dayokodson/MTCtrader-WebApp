@@ -1,2 +1,0 @@
-# MTCtrader-WebApp
-MTCtrader-WebApp
