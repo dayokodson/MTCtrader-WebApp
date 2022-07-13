@@ -57,10 +57,10 @@ const BalanceBoard = () => {
                                                                         {
                                                                             gas > 5 ? 
                                                                             <>
-                                                                                <img src="assets/img/gas_green.png" style={{ width: 30, height: 30 }}/>
+                                                                                <img src="/assets/img/gas_green.png" style={{ width: 30, height: 30 }}/>
                                                                             </> : 
                                                                             <>
-                                                                            <img src="assets/img/gas_red.png" style={{ width: 30, height: 30 }}/>
+                                                                            <img src="/assets/img/gas_red.png" style={{ width: 30, height: 30 }}/>
                                                                             </>
                                                                         }
                                                                     
