@@ -9,13 +9,13 @@ const Nav = (props) => {
 
 
 
-function logout(){
+const logout = () => {
 
 
     //window.localStorage.removeItem('@isLogin'); 
     window.localStorage.clear();
     navigate("/");
-    window.location.reload(true);
+   // window.location.reload(true);
  
 
 }

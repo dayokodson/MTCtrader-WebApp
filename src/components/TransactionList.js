@@ -5,12 +5,18 @@ const TransactionList = (props) => {
 
     const [transType, setTransType] = useState("avatar avatar-15 border-danger rounded-circle")
     useEffect(() => {
-		 
-        if(props.trans.type == "debit"){
-            setTransType("avatar avatar-15 border-danger rounded-circle")
+	
+        if(props.trans !== null){
+            if(props.trans.type == "debit"){
+                setTransType("avatar avatar-15 border-danger rounded-circle")
+            }else{
+                setTransType("avatar avatar-15 border-success rounded-circle");
+            }
         }else{
-            setTransType("avatar avatar-15 border-success rounded-circle");
+            setTransType("avatar avatar-15 border-danger rounded-circle")
+          
         }
+       
 
         
 	  
@@ -19,7 +25,7 @@ const TransactionList = (props) => {
  return (
     <>
           {
-            props.trans.length > 0 ? 
+            props.trans !== null ? 
             
             <>
                 <div className="main-container container">
@@ -38,7 +44,7 @@ const TransactionList = (props) => {
                                                 {
 
                                                     
-                                                    props.trans ? 
+                                                    props.trans !== null ? 
                                                     
                                                     props.trans.map((function(item) {
                                                            
@@ -51,7 +57,7 @@ const TransactionList = (props) => {
                                                                                 
                                                                                 <li key={item.id} className="list-group-item"> 
 
-                                                                                    <SubTrans item={item}/>
+                                                                                    <SubTrans item={item} key={item.id}/>
 
                                                                                 </li>
 

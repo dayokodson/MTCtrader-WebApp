@@ -3,14 +3,13 @@ import  { useNavigate, Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import QuickLinkModal from "../components/QuickLinkModal";
-import DashboardHeader from "../components/DashboardHeader";
-import LoadWrapper from "../components/LoadWrapper"; 
+import DashboardHeader from "../components/DashboardHeader"; 
 import TransactionList from "../components/TransactionList";
 import CryptoList from "../components/CryptoList";
 import Banner from "../components/Banner";
 import MarketReviewList from "../components/MarketReviewList";
 import BalanceBoard from "../components/BalanceBoard";
-
+import mainJs from "../jquery/mainJs";
 
 
 const Dashboard = () => {
@@ -32,8 +31,11 @@ const Dashboard = () => {
 
         if(value !== "true"){
             navigate("/");
-            window.location.reload(true);
+            //window.location.reload(true);
         }
+
+        mainJs();
+        
 
         if(fullname == ""){
              
@@ -75,7 +77,7 @@ const Dashboard = () => {
                         <Nav fullname={fullname} phone={phone}/>
                         <main className="h-100" style={{ marginBottom: "60px" }}>
                                 <DashboardHeader fullname={fullname} phone={phone}/>
-                                <div className="main-container container">
+                                <div className="main-container container"  style={{ marginTop: "80px" }}>
                                 
                                     <div className="row my-4 text-center">
                                         <div className="col-12">
@@ -86,19 +88,7 @@ const Dashboard = () => {
 
                                     
                                      <BalanceBoard />
- 
-                                    <div className="row mb-4">
-                                        <div className="col-12">
-                                            <div className="card shadow-sm">
-                                                <div className="card-body">
-                                                    <div className="form-check form-switch">
-                                                        <input className="form-check-input" type="checkbox" id="darkmodeswitch" />
-                                                        <label className="form-check-label text-muted px-2 " htmlFor="darkmodeswitch">Dark mode view</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+  
 
                                    
                                    <CryptoList cryptos={cryptoList}/>

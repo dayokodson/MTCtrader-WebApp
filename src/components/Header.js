@@ -6,9 +6,9 @@ const Header = (props) => {
           <header className="header position-fixed">
                             <div className="row">
                                 <div className="col-auto">
-                                    <a href="/dashboard" className="btn btn-success btn-44 back-btn">
+                                    <Link to="/dashboard" className="btn btn-success btn-44 back-btn">
                                         <i className="bi bi-arrow-left 8x" style={{ color: "white" }}></i>
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="col text-center">
                                     <div className="logo-small">

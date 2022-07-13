@@ -1,7 +1,6 @@
  
-//const baseUrl = //"https://connect.vairtualtoken.com/wp-json/api/v1";
-//const baseUrl = "http://localhost/wp-json/mobile/v1";  //"http://localhost/wp-json/vatt/v1";
-const baseUrl = "https://mtctraders.com/wp-json/mobile/v1";  //"http://localhost/wp-json/vatt/v1";
+ const baseUrl = "http://localhost/wp-json/mobile/v1";  //"";
+//const baseUrl = "https://mtctraders.com/wp-json/mobile/v1";  //;
 
 const puk = window.localStorage.getItem("@puk");
 
@@ -11,9 +10,12 @@ const depositCrypto = baseUrl + "/deposit";
 const addwallet = baseUrl + "/add_wallet";
 const creditGas = baseUrl + "/creditgas";
 const forecastList = baseUrl + "/forecastlist";
-const marketfundlist = baseUrl + "/marketfundlist";
 const confirmdeposit = baseUrl + "/confirmdeposit";
 const savedeposit = baseUrl + "/savedeposit";
+const marketfundInvest = baseUrl + "/marketfund/invest";
+const marketfundmyasset = baseUrl + "/marketfund/myassets"
+const marketfundlist = baseUrl + "/marketfund/list";
+
 
 
  
@@ -28,7 +30,9 @@ export default {
     forecastList,
     marketfundlist,
     confirmdeposit,
-    savedeposit
+    savedeposit,
+    marketfundInvest,
+    marketfundmyasset
 
     
     

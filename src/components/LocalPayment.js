@@ -67,6 +67,7 @@ function saveDeposit(){
               setSavingRun(true);
               setMessage(res.msg);
               setIsSaving(false);
+              setToggleAlert(true);
 
        });
 
@@ -92,16 +93,16 @@ function saveDeposit(){
             </p>
             <hr/>
 
-              <Myalert toggle={toggleAlert} message={message} />
-              {console.log(window.localStorage.getItem('@bankPendingDeposit'))}
+             
+             
 
             {
-                hasPendingDeposit === 'true' ? <>
+                hasPendingDeposit === "true" ? <>
 
-                    <ConfirmPayment depositType="bank" />
+                    <ConfirmPayment depositType="bank" message={message} />
                 
                 </>:<>
-                
+                <Myalert toggle={toggleAlert} message={message} />
                 {
                        isSaving ? <>
                        <LoadWrapper msg="Confirming your payment"/>

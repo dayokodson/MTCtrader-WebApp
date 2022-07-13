@@ -111,7 +111,7 @@ const CreditGas = () => {
                                     
                                 </div>
                             </div>
-                            { Myalert(alertMessage, toggleAlert)  }  
+                              < Myalert message={alertMessage} toggle={toggleAlert} /> 
                             {
                                 isFunding ? <>
                                     <LoadWrapper  msg="Funding your gas..."/>

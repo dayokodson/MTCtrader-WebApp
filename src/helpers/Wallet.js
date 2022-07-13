@@ -293,7 +293,8 @@ async function confirmdeposit  (depositType) {
           // get error message from body or default to response status
            message = { 
                 error: data.error,
-                msg: (data && data.message) || response.status
+                msg: (data && data.message) || response.status,
+                reload: 0
                 
             }
           return message;
@@ -304,7 +305,8 @@ async function confirmdeposit  (depositType) {
       if(data.error){
               message = { 
                     error: data.error,
-                    msg: data.message
+                    msg: data.message,
+                    reload: 0
                  }
                 
 
@@ -327,11 +329,13 @@ async function confirmdeposit  (depositType) {
         window.localStorage.setItem('@transList', transactions);
         window.localStorage.setItem('@reviewsList', reviewsList);
         window.localStorage.setItem('@forecastList', forecastList);
+
         
-    
+           
             message = { 
                         error: 0,
-                        msg: data.message
+                        msg: data.message,
+                        reload: data.reload
                     }
       }
 
@@ -341,7 +345,8 @@ async function confirmdeposit  (depositType) {
   .catch(error => {
        message = { 
               error: true,
-              msg: error
+              msg: error,
+              reload: 0
               
           }
       return message;

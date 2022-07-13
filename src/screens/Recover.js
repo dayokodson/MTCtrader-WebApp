@@ -31,7 +31,7 @@ const Recover = () => {
                                     </div>
                                 </div>
                                 <div className="col-auto align-self-center">
-                                    <a href="signin.html">Sing in</a>
+                                    <Link to="/login">Sing in</Link>
                                 </div>
                             </div>
                         </header>

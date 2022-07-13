@@ -20,7 +20,9 @@ import NotFound from "./screens/NotFound";
 import Forecast from "./screens/Forecast";
 import Review from "./screens/Review";
 import MarketFund from "./screens/MarketFund";
+import MarketFundMyAsset from "./screens/MarketFundMyAsset";
 import Terms from "./screens/Terms";
+
 
 const App = () => {
    
@@ -40,6 +42,8 @@ const App = () => {
         <Route exact path="/deposit" element={<Deposit/>}/>
         <Route exact path="/withdraw" element={<Withdraw/>}/>
         <Route exact path="/marketfund" element={<MarketFund/>}/>
+        <Route exact path="/marketfund/myassets" element={<MarketFundMyAsset/>}/>
+        <Route exact path="/marketfund/passive" element={<MarketFund/>}/>
         <Route exact path="/forecast" element={<Forecast/>}/>
         <Route exact path="/marketreview" element={<Review/>}/>
         <Route exact path="/profile" element={<Profile/>}/>

@@ -8,7 +8,7 @@ const ForecastList = (props) => {
  return (
     <>
           {
-            props.list.length > 0 ? 
+            props.list !== null ? 
             
             <>
                 <div className="main-container container">
@@ -25,7 +25,7 @@ const ForecastList = (props) => {
                                                 {
 
                                                     
-                                                    props.list ? 
+                                                    props.list !== null ? 
                                                     
                                                     props.list.map((function(item) {
                                                            
@@ -39,11 +39,12 @@ const ForecastList = (props) => {
 
                                                                         <div className="avatar avatar-15 border-success rounded-circle"></div>
                                                                             <p>
-                                                                                <span className="text-color-theme">R.O.I: {item.roi} %  | ASSETS: {item.assets} </span>
+                                                                                <span className="text-color-theme">R.O.I: {item.roi} %  | DURATION: {item.duration}  </span>
 
                                                                                 <br/>
-                                                                                <small className="text-muted">BUY/SELL: {item.trade_type}</small> | 
-                                                                                <small className="text-muted">DURATION: {item.duration}</small> |   
+                                                                                
+                                                                                <small className="text-muted">ASSETS: {item.assets}</small> |  
+                                                                                <small className="text-muted">BUY/SELL: {item.trade_type}</small> |  
                                                                                 <br/>
                                                                                 <small className="text-muted">ENTRY: {item.entry}</small> |
                                                                                 <small className="text-muted" style={{textAlign: "left"}}> TARGET: {item.target}</small>

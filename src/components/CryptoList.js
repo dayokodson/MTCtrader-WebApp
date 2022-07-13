@@ -7,11 +7,11 @@ const CryptoList = (props) => {
 
 
         
-            props.cryptos.length > 0 ? 
+            props.cryptos !== null ? 
                 <>        
                     <div className="row mb-3">
                         <div className="col">
-                            <h6 className="title">Top Hit</h6>
+                            <h6 className="title"></h6>
                         </div>
                     </div>
                     <div className="row mb-3">

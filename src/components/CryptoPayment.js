@@ -36,7 +36,7 @@ const CryptoPayment = () => {
         let depositAmount = amount * 1;
         if(amount < 1){
  
-               setMessage("Sorro, invalid amount");
+               setMessage("Sorry, invalid amount");
                setToggleAlert(true);
                return false;
         }
@@ -45,7 +45,7 @@ const CryptoPayment = () => {
  
         if(txId.length < 30){
  
-               setMessage("Sorry, invalid depositor name");
+               setMessage("Sorry, invalid transaction id");
                setToggleAlert(true);
                return false;
         }
@@ -58,6 +58,7 @@ const CryptoPayment = () => {
                setSavingRun(true);
                setMessage(res.msg);
                setIsSaving(false);
+               setToggleAlert(true);
  
         });
  
@@ -85,16 +86,16 @@ const CryptoPayment = () => {
             </p>
             <hr/>
 
-
+           
             {
                 hasPendingDeposit === "true" ? <>
 
-                    <ConfirmPayment depositType="crypto" />
+                    <ConfirmPayment depositType="crypto"   message={message}/>
                 
                 </>:<>
                 
-                    
                 <Myalert toggle={toggleAlert} message={message} />
+               
                         {
                             isSaving ? <>
                             <LoadWrapper msg="Processing your payment"/>

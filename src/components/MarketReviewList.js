@@ -25,7 +25,7 @@ const MarketReviewList = (props) => {
         {
 
        
-          props.reviews.length > 0 ?   
+          props.reviews !== null ?   
             <>
                 <div className="row mb-3">
                             <div className="col">
@@ -38,7 +38,7 @@ const MarketReviewList = (props) => {
                 <div className="row">
 
                     {
-                            props.reviews ? 
+                            props.reviews !== null ? 
                             props.reviews.map((function(item) {
                                 return (
                                     <>

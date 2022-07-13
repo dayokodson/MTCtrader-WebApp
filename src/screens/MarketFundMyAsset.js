@@ -1,13 +1,14 @@
 import React, {useEffect, useState}  from "react"; 
 import BalanceBoard from "../components/BalanceBoard"; 
 import Header from "../components/Header";
-import MarketFundList from "../components/MarketFundList";
+import MarketFundAssetList from "../components/MarketFundAssetList";
 //import  { useNavigate, Link } from "react-router-dom";
 import Footer from "../components/Footer";
-import QuickLinkModal from "../components/QuickLinkModal";
-//import {SendRequest, Myalert} from "../helpers";
-//import urllink from "../constant/urllink";  
-const MarketFund = () => {
+import QuickLinkModal from "../components/QuickLinkModal"; 
+
+
+
+const MarketFundMyAsset = () => {
  
     
  
@@ -26,7 +27,7 @@ const MarketFund = () => {
                         
                         <div className="main-container container">
                            
-                           <MarketFundList list={[]}/>
+                           <MarketFundAssetList list={[]}/>
 
                         </div>
 
@@ -40,4 +41,4 @@ const MarketFund = () => {
  );
 }
 
-export default MarketFund;
+export default MarketFundMyAsset;

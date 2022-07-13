@@ -20,9 +20,9 @@ const Login = () => {
        
         if(value == "true"){
 
-            //console.log(window.localStorage);
+            
               navigate("/dashboard");
-              window.location.reload(true);
+             // window.location.reload(true);
         }
 	  
 });
@@ -60,7 +60,7 @@ const Login = () => {
             setToggleAlert(true);
             setShowProcess(false);
              navigate('/dashboard');
-             window.location.reload(true);
+            // window.location.reload(true);
           
             
         }
@@ -138,24 +138,24 @@ const Login = () => {
                                 </p>
 
                               <Myalert message={alertMessage} toggle={ toggleAlert} /> 
+                            
 
-                               
-                            </div>
-                            <div className="col-11 col-sm-11 mt-auto mx-auto py-4">
-                                <div className="row ">
-                                    <div className="col-12 d-grid">
+
+                                <div className="  d-grid">
                                          {  
-                                            !showProcess ? <button
-                                            type="submit"
-                                            className="btn btn-default btn-lg shadow-sm"
-                                        >
+                                            !showProcess ? 
+                                            <button
+                                                type="submit"
+                                                className="btn btn-default btn-lg shadow-sm"
+                                            >
                                            Sign In
                                         </button> :  <> {loading()} </>
                                         }
                                          
-                                    </div>
                                 </div>
+                               
                             </div>
+                            
                         </form>
 
 
