@@ -10,6 +10,7 @@ import Banner from "../components/Banner";
 import MarketReviewList from "../components/MarketReviewList";
 import BalanceBoard from "../components/BalanceBoard";
 import mainJs from "../jquery/mainJs";
+var numeral = require('numeral');
 
 
 const Dashboard = () => {
@@ -81,7 +82,7 @@ const Dashboard = () => {
                                 
                                     <div className="row my-4 text-center">
                                         <div className="col-12">
-                                            <h1 className="fw-light mb-2">$ {totalBalance}</h1>
+                                            <h1 className="fw-light mb-2">$ {numeral(totalBalance).format('0.000')}</h1>
                                             <p className="text-secondary">Total Balance</p>
                                         </div>
                                     </div>

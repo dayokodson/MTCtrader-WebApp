@@ -15,6 +15,7 @@ const savedeposit = baseUrl + "/savedeposit";
 const marketfundInvest = baseUrl + "/marketfund/invest";
 const marketfundmyasset = baseUrl + "/marketfund/myassets"
 const marketfundlist = baseUrl + "/marketfund/list";
+const marketfundpassive = "https://mtctraders.com/wp-json/mobile/v1" + "/marketfund/passive";
 
 
 
@@ -32,7 +33,8 @@ export default {
     confirmdeposit,
     savedeposit,
     marketfundInvest,
-    marketfundmyasset
+    marketfundmyasset,
+    marketfundpassive
 
     
     
