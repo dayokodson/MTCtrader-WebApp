@@ -27,14 +27,7 @@ const MarketReviewList = (props) => {
        
           props.reviews !== null ?   
             <>
-                <div className="row mb-3">
-                            <div className="col">
-                                <h6 className="title">Market Forecast Update</h6>
-                            </div>
-                            <div className="col-auto align-self-center">
-                                <Link to="/marketreview" className="small">Read more</Link>
-                            </div>
-                </div>
+                
                 <div className="row">
 
                     {

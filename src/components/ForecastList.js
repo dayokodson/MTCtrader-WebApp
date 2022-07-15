@@ -10,16 +10,9 @@ const ForecastList = (props) => {
           {
             props.list !== null ? 
             
-            <>
-                <div className="main-container container">
-                            <div className="row">
-                                <div className="col-12 col-md-12 col-lg-12">
-                                    <div className="card shadow-sm mb-4">
-                                        <div className="card-header">
-                                            <h6 className="my-1">Market Forecast</h6>
-                                             
-                                        </div>
-                                        <div className="card-body bg-light">
+            <> 
+
+                <div className="card-body bg-light">
                                             <ul className="list-group list-group-flush w-100 bubble-sheet log-information">
 
                                                 {
@@ -27,7 +20,7 @@ const ForecastList = (props) => {
                                                     
                                                     props.list !== null ? 
                                                     
-                                                    props.list.map((function(item) {
+                                                    props.list.map((function(item) { 
                                                            
                                                               
                                                                
@@ -35,7 +28,7 @@ const ForecastList = (props) => {
                                                                return (
                                                                         <>
                                                                         
-                                                                        <li key={item.id} className="list-group-item"> 
+                                                                        <li key={item.key} className="list-group-item"> 
 
                                                                         <div className="avatar avatar-15 border-success rounded-circle"></div>
                                                                             <p>
@@ -71,12 +64,6 @@ const ForecastList = (props) => {
                                             </ul>
                                         </div>
                                         
-                                    </div>
-                                </div>
-                                
-
-                            </div>
-                </div>
             </> : <></>
          }
 

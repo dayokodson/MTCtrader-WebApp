@@ -11,15 +11,18 @@ const MarketFundList = (props) => {
     const [market, setMarket] = useState(false); 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-   // const handleShow = () => setShow(true);
+    // const handleShow = () => setShow(true);
     const walletBalance = JSON.parse(window.localStorage.getItem("@wallet")) * 1;
     const [insureTrade, setInsureTrade] = useState(0);
     const [investAmount, setInvestAmount] = useState(0);
     const [message, setMessage] = useState('');
     const [toggleAlert, setToggleAlert] = useState(false);
     const [showProcess, setShowProcess] = useState(false);
+    const [insureTradeRate, setInsureTradeRate] = useState(0);
+    const [balance, setBalance] = useState(walletBalance);
+    const [assetList, setAssetList] = useState(props.list);
+    const [isLoading, setIsLoading] = useState(false);
 
-    const [forecastList, setForecastList] = useState(props.list);
     useEffect(() => {
 
         refresh();
@@ -34,7 +37,8 @@ function refresh(){
             user_id: JSON.parse(window.localStorage.getItem("@userId")),
             page: 1
         }
-            
+          
+        setIsLoading(true);
         SendRequest(requestData)
         .then(function (res){
             if(res.error){
@@ -43,20 +47,17 @@ function refresh(){
     
             }else{
 
-                //setLoadForecast(true);
-                setForecastList(res.marketfund);
-                //console.log(res.marketfund);
-                //console.log(res.marketfund);
-                 
+                 setAssetList(res.marketfund);
+                 setIsLoading(false);
                 
             }
          
     
          }).catch((e) => {
-             console.log(e);
              
-                //setShowProcess(false);
-    
+             setIsLoading(false);
+             return false;   
+                 
          })
      
     
@@ -71,16 +72,31 @@ function refresh(){
 
  }
 
- function insure(e) {
+ function setInvestment(e){
 
-    let amount = investAmount * 0.05;
-    if(e === true){
-        setInsureTrade(amount);
- 
-    }else{
-        setInsureTrade(0);
-    }
+        let amount = e * 1;
+        
+        if(e.length < 1){
+            console.log(e.length);
+            amount = 0;
+        }
+        setInvestAmount(amount);
+        let ins = amount * insureTradeRate;
+        setInsureTrade(ins);
+        let bal = walletBalance - amount - ins;
+        setBalance(bal);
 
+ }
+
+ function insure(e){
+
+    let rate = e * 1;
+    setInsureTradeRate(rate);
+    let rateAmount = investAmount * rate;
+    setInsureTrade(rateAmount);
+    let bal = walletBalance - investAmount - rateAmount;
+    setBalance(bal);
+    
 
  }
 
@@ -157,11 +173,7 @@ function refresh(){
    
     
          })
-    
-    
-
-
-
+     
  }    
 
  return (
@@ -175,7 +187,8 @@ function refresh(){
                                             <h6 className="my-1">Market Fund</h6>
                                             <p>
 
-                                            <span className='text-muted'> Open Asset</span> | <Link to="/marketfund/myassets"> My Asset </Link>
+                                            <span className='text-muted'> Open Asset</span> | 
+                                            <Link to="/marketfund/myassets"> My Potfolio </Link>
                                                 | <Link to="/marketfund/passive"> Passive Asset</Link>
                                             </p>
                                              
@@ -184,54 +197,63 @@ function refresh(){
 
                                         <Myalert message={message} toggle={ toggleAlert} /> 
 
-                                            <ul className="list-group list-group-flush w-100 bubble-sheet log-information">
+                                        {
+                                            isLoading === true ?<>
+                                            <p>
+                                                loading...
+                                            </p>
+                                            </>:<>
+                                                <ul className="list-group list-group-flush w-100 bubble-sheet log-information">
 
-                                                {
+                                                    {
 
-                                                    
-                                                        forecastList !== null ? 
-                                                                                                            
-                                                        forecastList.map((function(item) {
-                                                           
-                                                              
-                                                               
+                                                        
+                                                        assetList !== null ? 
+                                                                                                                
+                                                            assetList.map((function(item) {
                                                             
-                                                               return (
-                                                                        <>
-                                                                        
-                                                                        <li key={item.asset_id} className="list-group-item"> 
-
-                                                                        <div className="avatar avatar-15 border-success rounded-circle"></div>
-                                                                            <p>
-                                                                                <span className="text-color-theme">ASSET : {item.asset}  
-                                                                                
-                                                                                 | <small className="" style={{textAlign: "left", color: "red"}}> {item.remaining_days} days left</small>
+                                                                return (
+                                                                            <>
                                                                             
-                                                                                </span>
+                                                                            <li key={item.key} className="list-group-item"> 
 
-                                                                                <br/>
+                                                                            <div className="avatar avatar-15 border-success rounded-circle"></div>
+                                                                                <p>
+                                                                                    <span className="text-color-theme">ASSET : {item.asset}  
+                                                                                    
+                                                                                    | <small className="" style={{textAlign: "left", color: "red"}}> {item.remaining_days} days left</small>
                                                                                 
-                                                                                <small className="text-muted">{item.content}</small> 
-                                                                                <br/>
-                                                                                <small className="text-muted">Total Stakers: {item.total_number_of_stakers}</small>  <br/>
-                                                                                <small className="text-muted" style={{textAlign: "left"}}> Amount Stake: USD{item.total_stake}</small><br/>
+                                                                                    </span>
 
-                                                                                <button className="btn btn-primary btn-sm shadow-sm" onClick={() => showModal(item)}>Invest</button>
-                                                                            </p>
+                                                                                    <br/>
+                                                                                    
+                                                                                    <small className="text-muted">{item.content}</small> 
+                                                                                    <br/>
+                                                                                    <small className="text-muted">Total Stakers: {item.total_number_of_stakers}</small>  <br/>
+                                                                                    <small className="text-muted" style={{textAlign: "left"}}> Amount Stake: USD{item.total_stake}</small><br/>
 
-                                                                        </li>
-                                                                          
-                                                                        </>
-                                                                    )
-                                                               
-                                                            }))
+                                                                                    <button className="btn btn-primary btn-sm shadow-sm" onClick={() => showModal(item)}>Invest</button>
+                                                                                </p>
 
-                                                    : <></>
-                                                }
-                
-                                                
-                                                
-                                            </ul>
+                                                                            </li>
+                                                                            
+                                                                            </>
+                                                                        )
+                                                                
+                                                                }))
+
+                                                        : <>
+                                                            <p>
+                                                                No new open asset
+                                                            </p>
+                                                        </>
+                                                    }
+                                                </ul>
+                                            </>
+                                        }
+                                            
+
+
                                         </div>
                                         
                                     </div>
@@ -276,29 +298,33 @@ function refresh(){
                                         <hr/>
                                             Stake Holding (%) <b> {market.last_stake} </b>
                                         <hr/> 
-                                            Wallet <b> USD{walletBalance - investAmount - insureTrade} </b>
+                                            Wallet <b> USD {balance} </b>
                                         <hr/>
                                         <h5>Invest</h5>
                                         <div className="form-group form-floating mb-3">
-                                            <input type="number" className="form-control" onChange={e => setInvestAmount(e.target.value)}  placeholder="Enter Amount" />
+                                            <input type="number" className="form-control" onChange={e => setInvestment(e.target.value)}  placeholder="Enter Amount" />
                                             <label className="form-control-label">Amount</label>
                                         </div>
                                         <div className="form-group form-floating mb-3">
                                             <h5>Insure Trade</h5>
                                             {
-                                                market.last_insure > 0 ? <>
-                                                <input type="radio" name="insure" onChange={() => insure(true)} checked />Yes (5%) 
-                                            
+                                                market.last_invested === 0 ? <>
+                                                <input type="radio" name="insure" onChange={() => insure(0.05)} />Yes (5%) |  
+                                                <input type="radio" name="insure" onChange={() => insure(0)} /> No  
                                                 </>:<>
-                                                <input type="radio" name="insure" onChange={() => insure(true)} checked/>No | 
+                                                
+                                                {
+                                                    market.last_insure > 0 ? <>
+                                                    <input type="radio" name="insure" onChange={() => insure(0.05)}  checked />Yes (5%) 
+                                                    </>:<>
+                                                    <input type="radio" name="insure" onChange={() => insure(0)}  checked /> No | 
+                                                    
+                                                    </>
+                                                }
+                                           
+                                                
                                                 
                                                 </>
-                                            }
-                                            {
-                                                market.last_invested === 0 ? <>
-                                                <input type="radio" name="insure" onChange={() => insure(true)} />Yes (5%) | 
-                                                <input type="radio" name="insure" onChange={() => insure(false)} checked />No  
-                                                </>:<></>
                                             }
                                             
 

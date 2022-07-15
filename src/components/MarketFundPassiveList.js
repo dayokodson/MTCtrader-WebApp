@@ -96,7 +96,7 @@ function refresh(){
                                             <h6 className="my-1">Passive Asset</h6>
                                             <p>
                                             <Link to="/marketfund">Open Asset</Link> 
-                                             | <Link to="/marketfund/myassets"> My Asset </Link>
+                                             | <Link to="/marketfund/myassets"> My Potfolio </Link>
                                                 | <span className='text-muted'> Passive Asset </span> 
                                             </p>
                                              

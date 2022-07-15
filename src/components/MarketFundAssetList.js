@@ -18,8 +18,9 @@ const MarketFundAssetList = (props) => {
     const [message, setMessage] = useState('');
     const [toggleAlert, setToggleAlert] = useState(false);
     const [showProcess, setShowProcess] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
-    const [forecastList, setForecastList] = useState(props.list);
+    const [assetList, setAssetList] = useState(props.list);
     useEffect(() => {
 
         refresh();
@@ -34,7 +35,8 @@ function refresh(){
             user_id: JSON.parse(window.localStorage.getItem("@userId")),
             page: 1
         }
-            
+        
+        setIsLoading(true);
         SendRequest(requestData)
         .then(function (res){
             if(res.error){
@@ -43,16 +45,19 @@ function refresh(){
     
             }else{
 
-                //setLoadForecast(true);
-                setForecastList(res.assets);
+                setAssetList(res.assets);
+                setIsLoading(false);
+                
   
                 
             }
          
     
          }).catch((e) => {
-              
-                //setShowProcess(false);
+               
+            setIsLoading(false);
+                
+            return false;
     
          })
      
@@ -172,7 +177,8 @@ function refresh(){
                                             <h6 className="my-1">My Assets</h6>
                                             <p>
 
-                                                <Link to="/marketfund">Open Asset</Link> | <span className='text-muted'> My Asset </span>
+                                                <Link to="/marketfund">Open Asset</Link> | 
+                                                <span className='text-muted'> My Potfolio </span>
                                                 | <Link to="/marketfund/passive"> Passive Asset</Link>
                                             </p>
                                              
@@ -181,53 +187,64 @@ function refresh(){
 
                                         <Myalert message={message} toggle={ toggleAlert} /> 
 
-                                            <ul className="list-group list-group-flush w-100 bubble-sheet log-information">
+                                        {
+                                            isLoading === true ?<>
+                                            <p>
+                                                loading...
+                                            </p>
+                                            </>:<>
+                                                <ul className="list-group list-group-flush w-100 bubble-sheet log-information">
 
-                                                {
+                                                    {
 
-                                                    
-                                                        forecastList !== null ? 
-                                                                                                            
-                                                        forecastList.map((function(item) {
-                                                           
-                                                              
-                                                               
+                                                        
+                                                        assetList !== null ? 
+                                                                                                                
+                                                            assetList.map((function(item) {
                                                             
-                                                               return (
-                                                                        <>
-                                                                        
-                                                                        <li key={item.asset_id} className="list-group-item"> 
-
-                                                                        <div className="avatar avatar-15 border-success rounded-circle"></div>
-                                                                            <p>
-                                                                                <span className="text-color-theme">ASSET : {item.title} </span>
-                                                                                    <br/>
-                                                                                 <small className="text-muted" style={{textAlign: "left"}}> Amount Invested: USD{item.total_stake}</small><br/>
-                                                                                
-                                                                                 <small className="text-muted">Insured: {item.is_insured} </small>  <br/>
-                                                                                
-                                                                                {
-                                                                                   item.status === "passive" ?<>
-                                                                                   <button className="btn btn-primary btn-sm shadow-sm" onClick={() => showModal(item)}>Withdraw</button>
+                                                                 return (
+                                                                            <>
                                                                             
-                                                                                   </>:<></>
-                                                                                }
+                                                                            <li key={item.asset_id} className="list-group-item"> 
+
+                                                                            <div className="avatar avatar-15 border-success rounded-circle"></div>
+                                                                                <p>
+                                                                                    <span className="text-color-theme">ASSET : {item.title} </span>
+                                                                                        <br/>
+                                                                                    <small className="text-muted" style={{textAlign: "left"}}> Amount Invested: USD{item.total_stake}</small><br/>
+                                                                                    
+                                                                                    <small className="text-muted">Insured: {item.is_insured} </small>  <br/>
+                                                                                    
+                                                                                    {
+                                                                                    item.status === "passive" ?<>
+                                                                                    <button className="btn btn-primary btn-sm shadow-sm" onClick={() => showModal(item)}>Withdraw</button>
+                                                                                
+                                                                                    </>:<></>
+                                                                                    }
+                                                                                
+                                                                                </p>
+
+                                                                            </li>
                                                                             
-                                                                            </p>
+                                                                            </>
+                                                                        )
+                                                                
+                                                                }))
 
-                                                                        </li>
-                                                                          
-                                                                        </>
-                                                                    )
-                                                               
-                                                            }))
+                                                        : <>
+                                                            <li className="list-group-item"> 
+                                                                <p>
+                                                                    You currently has no asset at the moment
+                                                                </p>
+                                                            </li>
+                                                        </>
+                                                    }
+                                                </ul>
 
-                                                    : <></>
-                                                }
-                
-                                                
-                                                
-                                            </ul>
+                                            </>
+                                        }
+                                           
+
                                         </div>
                                         
                                     </div>
