@@ -17,7 +17,8 @@ const marketfundmyasset = baseUrl + "/marketfund/myassets"
 const marketfundlist = baseUrl + "/marketfund/list";
 const marketfundpassive = baseUrl + "/marketfund/passive";
 const marketreviewlink = baseUrl + "/marketreview/list";
-
+const payfric = baseUrl + "/payfric/signature/confirm";;
+const creditWallet = baseUrl + "/wallet/credit";
 
  
 export default {
@@ -35,7 +36,9 @@ export default {
     marketfundInvest,
     marketfundmyasset,
     marketfundpassive,
-    marketreviewlink
+    marketreviewlink,
+    payfric,
+    
 
     
     

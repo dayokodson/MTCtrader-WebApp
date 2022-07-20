@@ -36,7 +36,7 @@ const MarketReviewList = (props) => {
                                 return (
                                     <>
                                     
-                                    <div  key={item.id} className="col-12 col-md-6 col-lg-4">
+                                    <div  key={item.key} className="col-12 col-md-6 col-lg-4">
                                         <div onClick={() => {showModal(item)}} className="card mb-3" data-bs-toggle="modal" data-bs-target="#readreview">
                                             <div className="card-body">
                                                 <div className="row">

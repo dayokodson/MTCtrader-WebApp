@@ -36,15 +36,10 @@ const Deposit = () => {
                     <main className="h-100">
 
                         <Header  title={"Deposit - " + title}/>
-                        <div  style={{ marginTop: "80px" }}>
-                        
-                            <BalanceBoard />
+                        <div  style={{ marginTop: "100px" }}>
+                         
                             <div className="main-container container">
-                                <div className="row mb-3">
-                                    <div className="col">
-                                        <h6 className="title">Select Payment Method</h6>
-                                    </div>
-                                </div>
+                                
                                 <div className="row mb-3">
                                     <div className="col-12 px-0">
                                         <div className="swiper-container connectionwiper">
@@ -60,7 +55,7 @@ const Deposit = () => {
                                                         <button onClick={()=> selectPaymentMethod("payfric")} className="card bg-opac-50 mb-2">
                                                             <div className="card-body p-1">
                                                                 <div className="avatar avatar-70 bg-white text-color-theme rounded-18 shadow-sm">
-                                                                <img src="/assets/img/payfricp.png" />
+                                                                <img src="/assets/img/payfric_logo_white.png" />
                                                                 </div>
                                                             </div>
                                                         </button>
@@ -88,18 +83,7 @@ const Deposit = () => {
                                                     <p className="mb-1 small">Bank Transfer</p>
 
                                                     </SwiperSlide >
-                                                    <SwiperSlide className="text-center"> 
-                                                        <button onClick={()=> selectPaymentMethod("metamask")} className="card bg-opac-50 mb-2">
-                                                            <div className="card-body p-1">
-                                                                <div className="avatar avatar-70 bg-white text-color-theme rounded-18 shadow-sm">
-                                                                <img src="/assets/img/metamask.png" />
-                                                                </div>
-                                                            </div>
-                                                        </button>
-                                                        <p className="mb-1 small">Meta Mask</p>
-                                                    </SwiperSlide>
                                                      
-                                                
                                                  
                                                </Swiper>  
                                                 
@@ -109,13 +93,13 @@ const Deposit = () => {
                                         </div>
                                     </div>
                                 </div>
-
+                                 
                                 {
                                     {
                                         'payfric': <PayfricPayment />,
                                         'crypto': <CryptoPayment />,
                                         'transfer': <LocalPayment />,
-                                        'metamask' : <MetaMaskPayment />
+                                        
                                     }[boardType]
                                 }
                             </div>

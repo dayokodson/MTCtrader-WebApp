@@ -1,38 +1,84 @@
 import React, {useState, useEffect} from 'react'; 
 import  { Link } from "react-router-dom";
+import  Modal  from 'react-bootstrap/Modal';
 import LoadWrapper from "../components/LoadWrapper"; 
-import {Myalert} from "../helpers";
+import {Myalert, SendRequest} from "../helpers";
+import { Button, Card } from 'react-bootstrap'; 
+import urllink from "../constant/urllink";  
 
 const PayfricPayment = () => {
 
+    const userId =  window.localStorage.getItem("@userId");
     const [isValidating, setIsValidating] = useState(false);
     const [paymentCode, setPaymentCode] = useState("");
     const [alertMessage, setAlertMessage] = useState("");
     const [toggleAlert, setToggleAlert] = useState(false);
-    const [showProcess, setShowProcess] = useState(false); 
+    const [showProcess, setShowProcess] = useState(false);
+    const [show, setShow] = useState(false);
+ 
+    const handleClose = () => setShow(false);
+    
 
+    function showModal (item){
+      
+      setShow(true)
+       
+  
+   }
+  
      
 
  function validatePayment(){
 
     //check if the value is less than 5
    
-    
 
     if(paymentCode.length < 10){
 
-        setAlertMessage("Enter valid payment code");
+        setAlertMessage("Enter valid signature code");
         setToggleAlert(true);
         return false;
     }
 
-    setAlertMessage("Sorry, the method of payment is not available yet, kindly check back later.");
-    setToggleAlert(true);
-    return false; 
-
-
+     
     //now process the funding 
-    //setIsValidating(true);
+    setIsValidating(true);
+    let requestData = {
+      url: urllink.payfric,
+      user_id: JSON.parse(window.localStorage.getItem("@userId")),
+      signature: paymentCode,
+      }
+ 
+      
+  SendRequest(requestData)
+  .then(function (res){
+      if(res.error){
+
+        setAlertMessage(res.message);
+        setToggleAlert(true);
+        setIsValidating(false);
+        console.log(res);
+        return false;
+     
+
+      }else{
+
+        setAlertMessage(res.message);
+        let wallet = JSON.stringify(res.balance);
+        let activity = JSON.stringify(res.activity);
+        window.localStorage.setItem('@wallet', wallet);
+        window.localStorage.setItem('@transList', activity);
+        
+        setToggleAlert(true);
+        setIsValidating(false); 
+        return false;
+        
+          
+      }
+   
+
+   })
+
      
  }
     
@@ -43,6 +89,11 @@ const PayfricPayment = () => {
 
                         <div className="row">
                         <div className="col-12">
+                        <div style={{ textAlign: "center" }}>
+                              <h3><b>With Payfric </b> </h3>
+                              <h5>Deposit to your wallet with Payfric payment signature</h5>
+                              <br/>
+                        </div>
 
                               <h3>Pay To: </h3>
                               <div className="card mb-4">
@@ -75,13 +126,13 @@ const PayfricPayment = () => {
 
                         <div className="row">
                         <div className="col-12 text-center mb-4" >
-                              <input type="text" onChange={(e) => setPaymentCode(e.target.value)} className="form-control text-center" placeholder="Enter Payment Code" />
+                              <input type="text" onChange={(e) => setPaymentCode(e.target.value)} className="form-control text-center" placeholder="Enter Payment Signature" />
                               <div className="text-center">
-                                    <span className="text-secondary">Enter Payfric Payment Code</span>
+                                    <span className="btn text-secondary" onClick={() => showModal()}>How it work?</span>
                               </div>
                         </div>
                         </div>
-                        { Myalert(alertMessage, toggleAlert)  }  
+                        <Myalert message={alertMessage} toggle={toggleAlert}  />
                         {
                               isValidating ? <>
                                     <LoadWrapper  msg="Connecting and validating your payment with Payfric..."/>
@@ -98,6 +149,34 @@ const PayfricPayment = () => {
 
 
             </div>
+
+
+            <Modal show={show} onHide={handleClose}>
+                  <Modal.Header closeButton>
+                  <Modal.Title><b>Payfric Payment Signature</b> </Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                   <h3>How it work?</h3>
+                  <hr />
+
+                        <p>
+                         Visit www.payfric.com, login to your wallet account, click signature, then click create signature. 
+                         Type the amount you want to deposit, type our email as beneficiary (payment@mtctraders.com), 
+                         a string code will be generated upon successful. That is your payment signature to deposit fund on our platform.
+                        </p>
+                        <p>
+                              Please note that payment signature generated for other platform can not be use on our platform. Thank you.
+                        </p>
+                  </Modal.Body>
+                  <Modal.Footer>
+                  <Button variant="secondary" onClick={handleClose}>
+                        Close
+                  </Button>
+                  
+                  </Modal.Footer>
+            </Modal> 
+
+
     </>
  );
 }

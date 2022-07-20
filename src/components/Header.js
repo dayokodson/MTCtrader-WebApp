@@ -11,9 +11,12 @@ const Header = (props) => {
                                     </Link>
                                 </div>
                                 <div className="col text-center">
-                                    <div className="logo-small">
+                                    <div className="logo-small" >
+                                        <h5><span className="text-secondary fw-light">
+                                            
                                         <img src="assets/img/logo.png" alt="" />
-                                        <h5><span className="text-secondary fw-light">MTC</span><br /> {props.title}</h5>
+                                        </span><br /> {props.title}</h5>
+                                        
                                     </div>
                                 </div>
                                 <div className="col-auto">

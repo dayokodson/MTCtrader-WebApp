@@ -71,11 +71,7 @@ function refresh(){
             }
          
     
-         }).catch((e) => {
-              
-                //setShowProcess(false);
-    
-         })
+         }) 
      
     
     }
